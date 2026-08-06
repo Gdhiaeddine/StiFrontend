@@ -1,0 +1,346 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import {
+  Phone,
+  ChevronDown,
+  Menu,
+  X,
+  Globe,
+  Wifi,
+  Smartphone,
+  Building2,
+  Zap,
+  Shield,
+  BarChart3,
+  Radio,
+  CreditCard,
+  Router,
+  CardSim,
+} from "lucide-react";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  {
+    label: "Solutions",
+    href: "#solutions",
+    children: [
+      {
+        icon: <Smartphone size={20} />,
+        title: "Mobile Distribution",
+        description: "SIM cards, recharge vouchers, and mobile plans",
+      },
+      {
+        icon: <Wifi size={20} />,
+        title: "Internet Solutions",
+        description: "Broadband, fiber, and wireless internet for homes",
+      },
+      {
+        icon: <Router size={20} />,
+        title: "Routers & Devices",
+        description: "Premium routers, modems, and connected devices",
+      },
+      {
+        icon: <Building2 size={20} />,
+        title: "Enterprise Connectivity",
+        description: "Dedicated lines, MPLS, and corporate solutions",
+      },
+    ],
+  },
+  {
+    label: "Products",
+    href: "#products",
+    children: [
+      {
+        icon: <CardSim size={20} />,
+        title: "SIM Cards",
+        description: "Prepaid and postpaid SIM cards for every need",
+      },
+      {
+        icon: <CreditCard size={20} />,
+        title: "Recharge Cards",
+        description: "Digital and physical recharge vouchers",
+      },
+      {
+        icon: <Router size={20} />,
+        title: "Routers",
+        description: "4G/5G routers and home gateways",
+      },
+      {
+        icon: <Radio size={20} />,
+        title: "Plans & Bundles",
+        description: "Voice, data, and combo plans",
+      },
+    ],
+  },
+  {
+    label: "Enterprise",
+    href: "#enterprise",
+    children: [
+      {
+        icon: <Building2 size={20} />,
+        title: "Business Solutions",
+        description: "Tailored connectivity for enterprises",
+      },
+      {
+        icon: <Zap size={20} />,
+        title: "Dedicated Lines",
+        description: "High-speed dedicated internet lines",
+      },
+      {
+        icon: <Shield size={20} />,
+        title: "Security",
+        description: "Network security and VPN solutions",
+      },
+      {
+        icon: <BarChart3 size={20} />,
+        title: "Digital Transformation",
+        description: "IoT, cloud, and digital enablement",
+      },
+    ],
+  },
+  { label: "Support", href: "#support" },
+  { label: "News", href: "#news" },
+  { label: "Contact", href: "#contact" },
+];
+
+const languages = ["FR", "EN", "AR"];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [lang, setLang] = useState("EN");
+  const [langOpen, setLangOpen] = useState(false);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!langOpen) return;
+    const onClick = () => setLangOpen(false);
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [langOpen]);
+
+  const closeMobile = useCallback(() => {
+    setMobileOpen(false);
+    setExpandedMobile(null);
+  }, []);
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+            : "bg-transparent"
+        }`}
+        style={{ height: 88 }}
+      >
+        <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-6 lg:px-8">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.05]">
+            <Image
+              src="/assets/logo.png"
+              alt="STI - Smart Technologie Innovation"
+              width={180}
+              height={60}
+              className="h-14 w-auto"
+              priority
+            />
+          </a>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <div key={item.label} className="nav-item relative">
+                <a
+                  href={item.href}
+                  className={`nav-link flex items-center gap-1 px-3.5 py-2 text-[15px] font-semibold transition-colors rounded-lg hover:bg-gray-50 ${
+                    scrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-700 hover:text-gray-900"
+                  }`}
+                >
+                  {item.label}
+                  {item.children && <ChevronDown size={14} className="opacity-50" />}
+                </a>
+
+                {/* Mega Menu */}
+                {item.children && (
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3">
+                    <div className="w-[520px] rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
+                      <div className="grid grid-cols-2 gap-2">
+                        {item.children.map((child) => (
+                          <a
+                            key={child.title}
+                            href={item.href}
+                            className="flex items-start gap-3 rounded-xl p-3.5 transition-all hover:bg-gray-50 group"
+                          >
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-primary/8 text-red-primary transition-colors group-hover:bg-red-primary group-hover:text-white">
+                              {child.icon}
+                            </div>
+                            <div>
+                              <div className="text-[13px] font-semibold text-gray-900">{child.title}</div>
+                              <div className="mt-0.5 text-[12px] leading-relaxed text-gray-500">
+                                {child.description}
+                              </div>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Right side */}
+          <div className="flex items-center gap-3">
+            {/* Language Switch */}
+            <div className="relative hidden md:block">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50/80 px-3 py-1.5 text-[12px] font-semibold text-gray-700 transition-all hover:bg-gray-100"
+              >
+                <Globe size={14} />
+                {lang}
+                <ChevronDown size={12} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
+              </button>
+              {langOpen && (
+                <div className="absolute top-full right-0 mt-2 w-28 rounded-xl border border-gray-100 bg-white py-1 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+                  {languages.map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => { setLang(l); setLangOpen(false); }}
+                      className={`flex w-full items-center px-3 py-2 text-[13px] font-medium transition-colors hover:bg-gray-50 ${
+                        lang === l ? "text-red-primary" : "text-gray-700"
+                      }`}
+                    >
+                      {l}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Phone */}
+            <a
+              href="tel:+213550123456"
+              className="hidden xl:flex items-center gap-2 text-gray-600 transition-colors hover:text-red-primary"
+            >
+              <Phone size={15} />
+              <div className="text-right">
+                <div className="text-[13px] font-semibold leading-tight">0550 123 456</div>
+                <div className="text-[10px] text-gray-400">Mon-Sat 08:00-18:00</div>
+              </div>
+            </a>
+
+            {/* Mobile Toggle */}
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl text-gray-700 hover:bg-gray-100"
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={closeMobile} />
+        <div
+          className={`absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ${
+            mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex h-[88px] items-center justify-between border-b border-gray-100 px-6">
+            <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "var(--font-manrope)" }}>
+              Menu
+            </span>
+            <button
+              aria-label="Close menu"
+              onClick={closeMobile}
+              className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-gray-100"
+            >
+              <X size={18} />
+            </button>
+          </div>
+          <div className="overflow-y-auto px-4 py-4" style={{ height: "calc(100vh - 88px)" }}>
+            {navItems.map((item) => (
+              <div key={item.label} className="border-b border-gray-50">
+                {item.children ? (
+                  <>
+                    <button
+                      onClick={() => setExpandedMobile(expandedMobile === item.label ? null : item.label)}
+                      className="flex w-full items-center justify-between py-3.5 text-[15px] font-semibold text-gray-700"
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform ${expandedMobile === item.label ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all ${
+                        expandedMobile === item.label ? "max-h-96 pb-3" : "max-h-0"
+                      }`}
+                    >
+                      {item.children.map((child) => (
+                        <a
+                          key={child.title}
+                          href={item.href}
+                          onClick={closeMobile}
+                          className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-gray-50"
+                        >
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-primary/8 text-red-primary">
+                            {child.icon}
+                          </div>
+                          <div>
+                            <div className="text-[13px] font-semibold text-gray-900">{child.title}</div>
+                            <div className="text-[11px] text-gray-500">{child.description}</div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={closeMobile}
+                    className="block py-3.5 text-[15px] font-semibold text-gray-700 hover:text-red-primary"
+                  >
+                    {item.label}
+                  </a>
+                )}
+              </div>
+            ))}
+            <div className="mt-6 space-y-3">
+              <a
+                href="tel:+213550123456"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 bg-gray-50 text-gray-700"
+              >
+                <Phone size={16} />
+                <div>
+                  <div className="text-[13px] font-semibold">0550 123 456</div>
+                  <div className="text-[11px] text-gray-400">Mon-Sat 08:00-18:00</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
