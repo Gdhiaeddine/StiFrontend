@@ -2,32 +2,9 @@
 
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
-const articles = [
-  {
-    image: "/assets/hero.png",
-    category: "Company News",
-    title: "STI Expands Enterprise Solutions Across 12 New Provinces",
-    excerpt: "Smart Technologie Innovation continues its nationwide expansion with new enterprise connectivity services in underserved regions.",
-    date: "Jan 15, 2026",
-  },
-  {
-    image: "/assets/hero.png",
-    category: "Technology",
-    title: "Introducing 5G-Ready Business Routers for Algerian Enterprises",
-    excerpt: "STI launches a new range of 5G-compatible routers designed to meet the growing demand for high-speed business connectivity.",
-    date: "Feb 3, 2026",
-  },
-  {
-    image: "/assets/hero.png",
-    category: "Partnership",
-    title: "STI and Ooredoo Strengthen Distribution Partnership for 2026",
-    excerpt: "The expanded partnership will bring enhanced mobile services and digital solutions to more customers across Algeria.",
-    date: "Mar 10, 2026",
-  },
-];
-
-function ArticleCard({ image, category, title, excerpt, date, index }: { image: string; category: string; title: string; excerpt: string; date: string; index: number }) {
+function ArticleCard({ image, category, title, excerpt, date, index, ctaText }: { image: string; category: string; title: string; excerpt: string; date: string; index: number; ctaText: string }) {
   const { ref, visible } = useScrollReveal(0.2);
 
   return (
@@ -60,7 +37,7 @@ function ArticleCard({ image, category, title, excerpt, date, index }: { image: 
           href="#news"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-red-primary transition-colors hover:text-red-accent"
         >
-          Read More
+          {ctaText}
           <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>
@@ -70,6 +47,7 @@ function ArticleCard({ image, category, title, excerpt, date, index }: { image: 
 
 export default function LatestNews() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section id="news" className="py-28 lg:py-36 bg-white">
@@ -81,18 +59,18 @@ export default function LatestNews() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            Latest News
+            {t.latestNews.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Stay Updated
+            {t.latestNews.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            The latest from STI and the Algerian telecom industry
+            {t.latestNews.subtitle}
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          {articles.map((a, i) => (
-            <ArticleCard key={a.title} {...a} index={i} />
+          {t.latestNews.items.map((a, i) => (
+            <ArticleCard key={a.title} image="/assets/hero.png" {...a} index={i} ctaText={t.latestNews.cta} />
           ))}
         </div>
       </div>

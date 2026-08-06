@@ -2,13 +2,9 @@
 
 import { Handshake, Package, Truck, Headphones } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
-const steps = [
-  { num: "01", icon: <Handshake size={22} />, title: "Partner Onboarding", description: "Become an authorized reseller with training, tools, and dedicated support from day one." },
-  { num: "02", icon: <Package size={22} />, title: "Product Sourcing", description: "Access the full range of Ooredoo SIM cards, recharge vouchers, devices, and plans." },
-  { num: "03", icon: <Truck size={22} />, title: "Distribution & Delivery", description: "Fast and reliable delivery to retailers and businesses across all 58 provinces." },
-  { num: "04", icon: <Headphones size={22} />, title: "Ongoing Support", description: "Continuous account management, technical assistance, and performance reporting." },
-];
+const icons = [<Handshake size={22} />, <Package size={22} />, <Truck size={22} />, <Headphones size={22} />];
 
 function StepCard({ num, icon, title, description, index }: { num: string; icon: React.ReactNode; title: string; description: string; index: number }) {
   const { ref, visible } = useScrollReveal(0.2);
@@ -22,7 +18,7 @@ function StepCard({ num, icon, title, description, index }: { num: string; icon:
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       {/* Connector line */}
-      {index < steps.length - 1 && (
+      {index < 3 && (
         <div className="absolute left-[calc(50%+40px)] top-10 hidden h-[2px] w-[calc(100%-80px)] bg-gradient-to-r from-red-primary/30 to-red-primary/10 lg:block" />
       )}
 
@@ -46,6 +42,7 @@ function StepCard({ num, icon, title, description, index }: { num: string; icon:
 
 export default function Process() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section className="py-28 lg:py-36 bg-gray-50">
@@ -57,18 +54,18 @@ export default function Process() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            How We Work
+            {t.process.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Our Distribution Flow
+            {t.process.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            From partnership to delivery, a seamless distribution experience
+            {t.process.subtitle}
           </p>
         </div>
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <StepCard key={s.title} {...s} index={i} />
+          {t.process.steps.map((s, i) => (
+            <StepCard key={s.title} num={`0${i + 1}`} icon={icons[i]} title={s.title} description={s.description} index={i} />
           ))}
         </div>
       </div>

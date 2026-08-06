@@ -2,18 +2,11 @@
 
 import { ArrowRight, Check } from "lucide-react";
 import { useScrollReveal } from "../hooks";
-
-const checklist = [
-  "Fleet SIM Management",
-  "Corporate Internet",
-  "Bulk Mobile Recharge",
-  "Dedicated Account Manager",
-  "Secure Connectivity",
-  "Monthly Reporting",
-];
+import { useTranslations } from "../[locale]/use-translations";
 
 export default function Enterprise() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section id="enterprise" className="py-28 lg:py-36 bg-white">
@@ -26,7 +19,7 @@ export default function Enterprise() {
         >
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Left — Illustration */}
-            <div className="relative flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-12 lg:p-16 min-h-[400px]">
+            <div className="relative flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 sm:p-12 lg:p-16 min-h-[280px] sm:min-h-[400px]">
               <div className="absolute inset-0 opacity-10" style={{
                 backgroundImage: `radial-gradient(circle at 2px 2px, #C8102E 1px, transparent 0)`,
                 backgroundSize: "32px 32px",
@@ -41,23 +34,23 @@ export default function Enterprise() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-extrabold text-white" style={{ fontFamily: "var(--font-manrope)" }}>
-                  Enterprise Solutions
+                  {t.enterprise.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-400">Built for businesses that demand excellence</p>
+                <p className="mt-2 text-sm text-gray-400">{t.enterprise.subtitle}</p>
               </div>
             </div>
 
             {/* Right — Content */}
             <div className="flex flex-col justify-center p-10 lg:p-14">
               <span className="mb-3 text-xs font-bold uppercase tracking-widest text-red-primary">
-                For Businesses
+                {t.enterprise.badge}
               </span>
               <h2 className="mb-6 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-                Solutions Designed for Businesses
+                {t.enterprise.title}
               </h2>
 
               <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {checklist.map((item) => (
+                {t.enterprise.checklist.map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-primary/10 text-red-primary">
                       <Check size={14} />
@@ -71,7 +64,7 @@ export default function Enterprise() {
                 href="#contact"
                 className="group inline-flex w-fit items-center gap-2 rounded-full bg-red-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-250 hover:shadow-lg hover:shadow-red-primary/25 hover:scale-[1.03]"
               >
-                Request a Consultation
+                {t.enterprise.cta}
                 <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>

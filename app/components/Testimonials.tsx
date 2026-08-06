@@ -2,27 +2,9 @@
 
 import { Star, Quote } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
-const testimonials = [
-  {
-    name: "Ahmed Benali",
-    role: "IT Director, Sonatrach",
-    review: "STI has been our trusted telecom partner for over 5 years. Their enterprise connectivity solutions are top-notch and their support team is always responsive.",
-    color: "from-red-primary to-red-accent",
-  },
-  {
-    name: "Fatima Hadj",
-    role: "Operations Manager, Cevital",
-    review: "Switching to STI for our fleet SIM management was a game changer. The bulk recharge system saves us hours every week and the reporting is excellent.",
-    color: "from-gray-700 to-gray-900",
-  },
-  {
-    name: "Youcef Mansouri",
-    role: "CEO, TechStart Algeria",
-    review: "As a startup, we needed flexible and affordable connectivity. STI provided exactly that with their business packages and dedicated account management.",
-    color: "from-gray-600 to-gray-800",
-  },
-];
+const colors = ["from-red-primary to-red-accent", "from-gray-700 to-gray-900", "from-gray-600 to-gray-800"];
 
 function TestimonialCard({ name, role, review, color, index }: { name: string; role: string; review: string; color: string; index: number }) {
   const { ref, visible } = useScrollReveal(0.2);
@@ -62,6 +44,7 @@ function TestimonialCard({ name, role, review, color, index }: { name: string; r
 
 export default function Testimonials() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section className="py-28 lg:py-36 bg-white">
@@ -73,18 +56,18 @@ export default function Testimonials() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            Testimonials
+            {t.testimonials.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            What Our Clients Say
+            {t.testimonials.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            Trusted by leading businesses across Algeria
+            {t.testimonials.subtitle}
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={t.name} {...t} index={i} />
+          {t.testimonials.items.map((item, i) => (
+            <TestimonialCard key={item.name} {...item} color={colors[i]} index={i} />
           ))}
         </div>
       </div>

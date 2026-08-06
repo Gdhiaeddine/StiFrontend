@@ -184,3 +184,32 @@ body {
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .nav-link::after {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .mega-menu {
+  left: auto;
+  right: 1/2;
+  transform: translateX(1/2);
+}
+
+[dir="rtl"] .nav-item:hover .mega-menu {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}

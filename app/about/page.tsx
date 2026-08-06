@@ -3,8 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/about/Hero";
 import CompanyStory from "../components/about/CompanyStory";
-import MissionVision from "../components/about/MissionVision";
-import WhyChoose from "../components/about/WhyChoose";
+import WhyChoose from "../components/WhyChoose";
 import Timeline from "../components/about/Timeline";
 import Leadership from "../components/about/Leadership";
 import Statistics from "../components/about/Statistics";
@@ -13,8 +12,8 @@ import Partnership from "../components/about/Partnership";
 import Process from "../components/about/Process";
 import Gallery from "../components/about/Gallery";
 import Testimonials from "../components/about/Testimonials";
-import FAQ from "../components/about/FAQ";
-import CTA from "../components/about/CTA";
+import FAQ from "../components/FAQ";
+import FinalCTA from "../components/FinalCTA";
 
 export const metadata: Metadata = {
   title: "About STI | Official Ooredoo Distributor Algeria",
@@ -43,7 +42,6 @@ export default function AboutPage() {
       <main>
         <Hero />
         <CompanyStory />
-        <MissionVision />
         <WhyChoose />
         <Timeline />
         <Leadership />
@@ -54,7 +52,7 @@ export default function AboutPage() {
         <Gallery />
         <Testimonials />
         <FAQ />
-        <CTA />
+        <FinalCTA />
       </main>
       <Footer />
     </>

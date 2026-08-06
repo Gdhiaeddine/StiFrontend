@@ -1,42 +1,12 @@
 "use client";
 
-import { ArrowRight, Smartphone, CardSim, Building2, Wifi, Headphones, BarChart3 } from "lucide-react";
+import { ArrowRight, Smartphone, CardSim, Truck, Coins, Handshake, Building2 } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
-const services = [
-  {
-    icon: <Smartphone size={24} />,
-    title: "Mobile Recharge Distribution",
-    description: "Nationwide distribution of Ooredoo recharge vouchers, digital top-ups, and mobile credit solutions for retailers and businesses.",
-  },
-  {
-    icon: <CardSim size={24} />,
-    title: "SIM Card Activation",
-    description: "Fast and reliable SIM activation services for prepaid and postpaid plans with full registration support.",
-  },
-  {
-    icon: <Building2 size={24} />,
-    title: "Enterprise Connectivity",
-    description: "Dedicated internet lines, MPLS networking, and corporate communication solutions for businesses of all sizes.",
-  },
-  {
-    icon: <Wifi size={24} />,
-    title: "Internet & Fiber Solutions",
-    description: "High-speed broadband, fiber optic, and wireless internet packages for homes and offices across Algeria.",
-  },
-  {
-    icon: <Headphones size={24} />,
-    title: "Technical Support",
-    description: "Professional customer support and technical assistance for all Ooredoo products and enterprise solutions.",
-  },
-  {
-    icon: <BarChart3 size={24} />,
-    title: "Digital Business Solutions",
-    description: "IoT, cloud services, digital transformation consulting, and smart business enablement technologies.",
-  },
-];
+const icons = [<Smartphone size={24} />, <CardSim size={24} />, <Truck size={24} />, <Coins size={24} />, <Handshake size={24} />, <Building2 size={24} />];
 
-function ServiceCard({ icon, title, description, index }: { icon: React.ReactNode; title: string; description: string; index: number }) {
+function ServiceCard({ icon, title, description, index, ctaText }: { icon: React.ReactNode; title: string; description: string; index: number; ctaText: string }) {
   const { ref, visible } = useScrollReveal(0.2);
 
   return (
@@ -63,7 +33,7 @@ function ServiceCard({ icon, title, description, index }: { icon: React.ReactNod
         href="#contact"
         className="inline-flex items-center gap-1.5 text-sm font-semibold text-red-primary transition-colors hover:text-red-accent"
       >
-        Learn More
+        {ctaText}
         <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
       </a>
     </div>
@@ -72,6 +42,7 @@ function ServiceCard({ icon, title, description, index }: { icon: React.ReactNod
 
 export default function Services() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section id="solutions" className="py-28 lg:py-36 bg-white">
@@ -83,19 +54,18 @@ export default function Services() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            What We Do
+            {t.services.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Complete Telecommunications Solutions
+            {t.services.title}
           </h2>
           <p className="mx-auto max-w-2xl text-gray-500">
-            From mobile distribution to enterprise connectivity, STI delivers comprehensive
-            telecom services tailored for the Algerian market.
+            {t.services.subtitle}
           </p>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <ServiceCard key={s.title} {...s} index={i} />
+          {t.services.items.map((s, i) => (
+            <ServiceCard key={s.title} icon={icons[i]} title={s.title} description={s.description} index={i} ctaText={t.services.cta} />
           ))}
         </div>
       </div>

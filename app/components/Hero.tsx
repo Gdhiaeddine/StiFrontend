@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "../[locale]/use-translations";
 
 export default function Hero() {
+  const t = useTranslations();
+  
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden hero-gradient">
       {/* Background pattern */}
@@ -25,39 +28,35 @@ export default function Hero() {
               className="animate-fade-in-up inline-flex items-center mb-4"
               style={{ animationDelay: "0.1s", animationFillMode: "both" }}
             >
-              <span className="text-[13px] font-extrabold text-red-primary tracking-widest uppercase">
-                Official Ooredoo Distributor
+              <span className="text-[11px] font-extrabold text-red-primary tracking-widest uppercase">
+                {t.hero.badge}
               </span>
             </div>
 
             {/* Heading */}
             <h1
-              className="animate-fade-in-up text-[clamp(2.75rem,5.5vw,4.5rem)] font-extrabold leading-[1.05] tracking-tight text-gray-900 mb-6"
+              className="animate-fade-in-up text-[clamp(2.25rem,4.5vw,3.5rem)] font-extrabold leading-[1.05] tracking-tight text-gray-900 mb-6"
               style={{
                 fontFamily: "var(--font-manrope)",
                 animationDelay: "0.2s",
                 animationFillMode: "both",
               }}
             >
-              Innovative
+              {t.hero.title_line1}
               <br />
-              <span className="text-red-primary">Telecommunication</span>
+              <span className="text-red-primary">{t.hero.title_line2}</span>
               <br />
-              Solutions
+              {t.hero.title_line3}
               <br />
-              for Algeria
+              {t.hero.title_line4}
             </h1>
 
             {/* Description */}
             <p
-              className="animate-fade-in-up text-lg leading-relaxed text-gray-500 max-w-[540px] mb-10"
+              className="animate-fade-in-up text-base leading-relaxed text-gray-500 max-w-[540px] mb-10"
               style={{ animationDelay: "0.35s", animationFillMode: "both" }}
             >
-              SARL Smart Technologie Innovation is an official Ooredoo distributor
-              providing mobile recharge distribution, SIM activation, enterprise
-              connectivity, internet solutions, routers, digital transformation,
-              and professional customer support for businesses and individuals
-              across Algeria.
+              {t.hero.description}
             </p>
 
             {/* CTA Buttons */}
@@ -67,9 +66,9 @@ export default function Hero() {
             >
               <a
                 href="#solutions"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-red-primary px-7 py-3.5 text-[15px] font-semibold text-white transition-all duration-250 hover:shadow-xl hover:shadow-red-primary/25 hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-red-primary px-6 py-3 text-[13px] font-semibold text-white transition-all duration-250 hover:shadow-xl hover:shadow-red-primary/25 hover:scale-[1.03]"
               >
-                Discover Solutions
+                {t.hero.cta_primary}
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-250 group-hover:translate-x-0.5"
@@ -77,9 +76,9 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-7 py-3.5 text-[15px] font-semibold text-gray-700 transition-all duration-250 hover:border-gray-300 hover:shadow-lg hover:scale-[1.03]"
+                className="inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-6 py-3 text-[13px] font-semibold text-gray-700 transition-all duration-250 hover:border-gray-300 hover:shadow-lg hover:scale-[1.03]"
               >
-                Contact Sales
+                {t.hero.cta_secondary}
               </a>
             </div>
 

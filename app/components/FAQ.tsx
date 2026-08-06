@@ -3,29 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useScrollReveal } from "../hooks";
-
-const faqs = [
-  {
-    q: "How can I become an STI reseller?",
-    a: "To become an STI reseller, contact our business development team through our contact form or call us directly. We offer competitive partnership programs with training, marketing support, and attractive margins for authorized resellers across Algeria.",
-  },
-  {
-    q: "How do I activate a SIM card?",
-    a: "SIM card activation can be done at any STI authorized point of sale or through our online portal. You'll need a valid ID and the SIM card package. Activation typically takes less than 5 minutes and the SIM is ready to use immediately.",
-  },
-  {
-    q: "What business solutions do you provide?",
-    a: "We offer enterprise connectivity, fleet SIM management, bulk mobile recharge, dedicated internet lines, MPLS networking, IoT solutions, cloud services, and digital transformation consulting. Each solution is tailored to your business needs.",
-  },
-  {
-    q: "How can I contact technical support?",
-    a: "You can reach our technical support team 24/7 by calling our support hotline, sending an email, or using the live chat on our website. Enterprise clients also have access to a dedicated account manager for priority support.",
-  },
-  {
-    q: "Do you offer enterprise contracts?",
-    a: "Yes, we offer flexible enterprise contracts with custom SLAs, volume pricing, dedicated account management, priority support, and monthly reporting. Contact our enterprise team to discuss your specific requirements.",
-  },
-];
+import { useTranslations } from "../[locale]/use-translations";
 
 function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
@@ -67,6 +45,7 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQ() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section id="support" className="py-28 lg:py-36 bg-gray-50">
@@ -78,17 +57,17 @@ export default function FAQ() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            FAQ
+            {t.faq.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Frequently Asked Questions
+            {t.faq.title}
           </h2>
-          <p className="mx-auto max-w-xl text-gray-500">
-            Find answers to common questions about our services
+          <p className="mx-auto max-w-2xl text-gray-500">
+            {t.faq.subtitle}
           </p>
         </div>
         <div className="mx-auto max-w-3xl">
-          {faqs.map((f, i) => (
+          {t.faq.items.map((f, i) => (
             <FaqItem key={f.q} {...f} index={i} />
           ))}
         </div>

@@ -44,7 +44,7 @@ export default function Statistics() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 gap-5 lg:grid-cols-5"
+          className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-5"
         >
           {stats.map((s) => (
             <motion.div

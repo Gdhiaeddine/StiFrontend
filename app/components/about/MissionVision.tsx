@@ -7,19 +7,19 @@ const cards = [
   {
     icon: <Target size={28} />,
     title: "Our Mission",
-    description: "To provide exceptional telecommunications distribution services that empower businesses and individuals across Algeria with reliable, innovative, and accessible connectivity solutions.",
+    description: "To ensure the reliable distribution of official Ooredoo mobile recharge credit and prepaid SIM cards, providing retailers, wholesalers, and business partners across Algeria with fast, secure, and dependable supply.",
     color: "from-red-primary to-red-accent",
   },
   {
     icon: <Eye size={28} />,
     title: "Our Vision",
-    description: "To be Algeria's leading telecommunications distributor, recognized for excellence, innovation, and commitment to connecting every corner of the nation with world-class services.",
+    description: "To become Algeria's most trusted and preferred Ooredoo distribution partner, recognized for operational excellence, reliable service, and a strong nationwide distribution network.",
     color: "from-gray-700 to-gray-900",
   },
   {
     icon: <Heart size={28} />,
     title: "Our Values",
-    description: "Integrity, innovation, customer-centricity, and reliability form the foundation of everything we do. We believe in building lasting partnerships through trust and exceptional service.",
+    description: "Reliability, integrity, customer commitment, and operational excellence form the foundation of everything we do, ensuring strong partnerships and dependable telecom distribution across Algeria.",
     color: "from-gray-600 to-gray-800",
   },
 ];
@@ -52,7 +52,7 @@ export default function MissionVision() {
             Mission, Vision & Values
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            The principles that guide our journey toward excellence
+            The principles that drive our commitment to reliable telecom distribution across Algeria.
           </p>
         </motion.div>
 

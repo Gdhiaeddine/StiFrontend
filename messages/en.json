@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "solutions": "Solutions",
+    "products": "Products",
+    "enterprise": "Enterprise",
+    "support": "Support",
+    "news": "News",
+    "contact": "Contact",
+    "menu": "Menu",
+    "phone_hours": "Mon-Sat 08:00-18:00",
+    "solutions_sub": {
+      "mobile_recharge": "Mobile Recharge Credit",
+      "mobile_recharge_desc": "Ooredoo mobile recharge credit in multiple denominations.",
+      "sim_cards": "SIM Card Distribution",
+      "sim_cards_desc": "Prepaid SIM cards for retailers and sales partners.",
+      "wholesale": "Wholesale Solutions",
+      "wholesale_desc": "Bulk purchasing options for resellers and wholesalers.",
+      "partner": "Partner Services",
+      "partner_desc": "Dedicated support for orders and product availability."
+    },
+    "products_sub": {
+      "sim_cards": "SIM Cards",
+      "sim_cards_desc": "Prepaid and postpaid SIM cards for every need",
+      "recharge": "Recharge Cards",
+      "recharge_desc": "Digital and physical recharge vouchers",
+      "routers": "Routers",
+      "routers_desc": "4G/5G routers and home gateways",
+      "plans": "Plans & Bundles",
+      "plans_desc": "Voice, data, and combo plans"
+    },
+    "enterprise_sub": {
+      "business": "Business Solutions",
+      "business_desc": "Tailored connectivity for enterprises",
+      "dedicated": "Dedicated Lines",
+      "dedicated_desc": "High-speed dedicated internet lines",
+      "security": "Security",
+      "security_desc": "Network security and VPN solutions",
+      "digital": "Digital Transformation",
+      "digital_desc": "IoT, cloud, and digital enablement"
+    }
+  },
+  "hero": {
+    "badge": "Official Ooredoo Distributor",
+    "title_line1": "Innovative",
+    "title_line2": "Telecommunication",
+    "title_line3": "Solutions",
+    "title_line4": "for Algeria",
+    "description": "SARL Smart Technologie Innovation is an official Ooredoo distributor specializing in the distribution of mobile recharge credit and SIM cards. We provide reliable, secure, and efficient telecom distribution services, ensuring fast delivery, seamless SIM activation support, and professional customer service for retailers, resellers, businesses, and individuals across Algeria.",
+    "cta_primary": "Discover Solutions",
+    "cta_secondary": "Contact Sales"
+  },
+  "partnership": {
+    "badge": "Official Partnership",
+    "title": "Official Ooredoo Distributor",
+    "description": "SARL Smart Technologie Innovation is an authorized Ooredoo distributor providing professional telecom services, mobile recharge distribution, SIM management, enterprise connectivity, and customer support across Algeria.",
+    "certification": "Official certification",
+    "partnership_feat": "Trusted partnership",
+    "nationwide": "Nationwide service",
+    "enterprise_feat": "Enterprise expertise",
+    "cta": "Learn More"
+  },
+  "statistics": {
+    "title": "Our Numbers Speak",
+    "subtitle": "Trusted by thousands of businesses and individuals across Algeria",
+    "items": [
+      { "title": "Decade of Excellence", "label": "Proven expertise in telecom distribution built over many years" },
+      { "title": "Massive Customer Base", "label": "Trusted by tens of thousands of customers nationwide" },
+      { "title": "Strong Partnerships", "label": "Deep and lasting relationships with business partners across Algeria" },
+      { "title": "All 58 Provinces", "label": "Full nationwide coverage across every Algerian province" },
+      { "title": "Top Satisfaction", "label": "Industry-leading customer satisfaction and retention" }
+    ]
+  },
+  "services": {
+    "badge": "What We Do",
+    "title": "Complete Telecommunications Solutions",
+    "subtitle": "From mobile distribution to enterprise connectivity, STI delivers comprehensive telecom services tailored for the Algerian market.",
+    "cta": "Learn More",
+    "items": [
+      { "title": "Mobile Recharge Distribution", "description": "Nationwide distribution of Ooredoo mobile recharge credit for retailers, wholesalers, and authorized resellers. Fast, secure, and reliable top-up supply across Algeria." },
+      { "title": "SIM Card Distribution", "description": "Distribution of Ooredoo prepaid SIM cards with reliable stock availability for retailers, distributors, and sales partners throughout Algeria." },
+      { "title": "Retailer Supply Network", "description": "Efficient delivery of recharge credit and SIM cards through a well-organized distribution network, ensuring partners always have the products they need." },
+      { "title": "Wholesale Credit Solutions", "description": "Bulk mobile credit distribution designed for wholesalers and large retail networks, with competitive pricing and dependable service." },
+      { "title": "Dealer & Partner Support", "description": "Dedicated support for authorized dealers and resellers, including order management, product availability, and operational assistance." },
+      { "title": "Telecom Distribution Services", "description": "Professional telecom distribution focused on mobile recharge credit and SIM card supply, helping businesses serve customers efficiently across Algeria." }
+    ]
+  },
+  "whyChoose": {
+    "badge": "Why STI",
+    "title": "Your Trusted Technology Partner",
+    "subtitle": "Six reasons why leading businesses choose STI for their telecom needs",
+    "items": [
+      { "title": "Official Ooredoo Distributor", "description": "Authorized Ooredoo distributor providing genuine mobile recharge credit and official SIM cards across Algeria." },
+      { "title": "Reliable Product Availability", "description": "Continuous stock of recharge credit and SIM cards to ensure uninterrupted supply for retailers and partners." },
+      { "title": "Fast Distribution Network", "description": "Efficient and timely delivery of mobile credit and SIM cards through a trusted nationwide distribution network." },
+      { "title": "Competitive Wholesale Pricing", "description": "Attractive pricing and flexible purchasing options designed for retailers, wholesalers, and resellers." },
+      { "title": "Trusted Business Partner", "description": "Building long-term partnerships through reliable service, transparent operations, and consistent product quality." },
+      { "title": "Dedicated Customer Support", "description": "Responsive support team assisting partners with orders, product availability, and distribution-related inquiries." }
+    ]
+  },
+  "products": {
+    "badge": "Our Products",
+    "title": "Featured Products",
+    "subtitle": "Explore our range of premium telecom products and devices",
+    "cta": "View Product",
+    "items": [
+      { "title": "Ooredoo Recharge Credit", "description": "Digital mobile recharge credit available in multiple denominations for retailers, wholesalers, and authorized resellers." },
+      { "title": "Ooredoo Prepaid SIM Cards", "description": "Official prepaid SIM cards ready for distribution through our partner network across Algeria." },
+      { "title": "Ooredoo Welcome Packs", "description": "SIM starter packs including prepaid SIM cards and initial mobile credit for new customers." },
+      { "title": "Bulk Mobile Credit", "description": "Wholesale mobile recharge credit solutions designed for distributors, retailers, and business partners." },
+      { "title": "Retail Distribution Solutions", "description": "Comprehensive telecom distribution services providing reliable supply of Ooredoo recharge credit and SIM cards." }
+    ]
+  },
+  "enterprise": {
+    "badge": "Solutions for Our Partners",
+    "title": "Business Solutions",
+    "subtitle": "Reliable telecom distribution services for retailers, wholesalers, and business partners.",
+    "cta": "Become a Partner",
+    "checklist": [
+      "Bulk Mobile Recharge Distribution",
+      "Wholesale SIM Card Supply",
+      "Retailer & Reseller Partnership",
+      "Fast Order Processing",
+      "Reliable Stock Availability",
+      "Dedicated Partner Support"
+    ]
+  },
+  "process": {
+    "badge": "How We Work",
+    "title": "Our Distribution Flow",
+    "subtitle": "From partnership to delivery, a seamless distribution experience",
+    "steps": [
+      { "title": "Partner Onboarding", "description": "Become an authorized reseller with training, tools, and dedicated support from day one." },
+      { "title": "Product Sourcing", "description": "Access the full range of Ooredoo SIM cards, recharge vouchers, devices, and plans." },
+      { "title": "Distribution & Delivery", "description": "Fast and reliable delivery to retailers and businesses across all 58 provinces." },
+      { "title": "Ongoing Support", "description": "Continuous account management, technical assistance, and performance reporting." }
+    ]
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by leading businesses across Algeria",
+    "items": [
+      { "name": "Ahmed Benali", "role": "IT Director, Sonatrach", "review": "STI has been our trusted telecom partner for over 5 years. Their enterprise connectivity solutions are top-notch and their support team is always responsive." },
+      { "name": "Fatima Hadj", "role": "Operations Manager, Cevital", "review": "Switching to STI for our fleet SIM management was a game changer. The bulk recharge system saves us hours every week and the reporting is excellent." },
+      { "name": "Youcef Mansouri", "role": "CEO, TechStart Algeria", "review": "As a startup, we needed flexible and affordable connectivity. STI provided exactly that with their business packages and dedicated account management." }
+    ]
+  },
+  "trustedPartners": {
+    "badge": "Our Partner",
+    "title": "Trusted by Industry Leaders"
+  },
+  "latestNews": {
+    "badge": "Latest News",
+    "title": "Stay Updated",
+    "subtitle": "The latest from STI and the Algerian telecom industry",
+    "cta": "Read More",
+    "items": [
+      { "category": "Company News", "title": "STI Expands Enterprise Solutions Across 12 New Provinces", "excerpt": "Smart Technologie Innovation continues its nationwide expansion with new enterprise connectivity services in underserved regions.", "date": "Jan 15, 2026" },
+      { "category": "Technology", "title": "Introducing 5G-Ready Business Routers for Algerian Enterprises", "excerpt": "STI launches a new range of 5G-compatible routers designed to meet the growing demand for high-speed business connectivity.", "date": "Feb 3, 2026" },
+      { "category": "Partnership", "title": "STI and Ooredoo Strengthen Distribution Partnership for 2026", "excerpt": "The expanded partnership will bring enhanced mobile services and digital solutions to more customers across Algeria.", "date": "Mar 10, 2026" }
+    ]
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our mobile recharge credit and SIM card distribution services.",
+    "items": [
+      { "q": "How can I become an STI reseller?", "a": "Becoming an STI reseller is simple. Contact our sales team to apply for a partnership. We offer competitive wholesale pricing, reliable product availability, and ongoing support for authorized retailers and distributors across Algeria." },
+      { "q": "What products does STI distribute?", "a": "STI specializes in the distribution of official Ooredoo mobile recharge credit and Ooredoo prepaid SIM cards for retailers, wholesalers, and business partners throughout Algeria." },
+      { "q": "How do I place an order?", "a": "Orders can be placed by contacting our sales team or through your assigned sales representative. We ensure fast order processing and reliable product delivery." },
+      { "q": "Do you offer wholesale pricing?", "a": "Yes. We provide competitive wholesale pricing and flexible purchasing options for retailers, wholesalers, and authorized distribution partners based on order volume." },
+      { "q": "How can I contact customer support?", "a": "Our support team is available to assist with product availability, orders, reseller partnerships, and distribution services. You can contact us by phone, email, or through the contact form on our website." }
+    ]
+  },
+  "finalCta": {
+    "title_line1": "Ready to Grow with",
+    "title_line2": "Algeria's Trusted Telecom Partner?",
+    "description": "Whether you're a business looking for enterprise connectivity or an individual seeking reliable telecom services, STI is here to help you succeed.",
+    "cta_primary": "Contact Us",
+    "cta_secondary": "Request a Quote"
+  },
+  "footer": {
+    "brand_description": "Official Ooredoo distributor providing premium telecom solutions for businesses and individuals across Algeria.",
+    "company": "Company",
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "contact": "Contact",
+    "about": "About",
+    "careers": "Careers",
+    "news": "News",
+    "contact_link": "Contact",
+    "mobile_recharge": "Mobile Recharge",
+    "sim_activation": "SIM Activation",
+    "enterprise_link": "Enterprise",
+    "internet": "Internet",
+    "support": "Support",
+    "faq": "FAQ",
+    "documentation": "Documentation",
+    "privacy_policy": "Privacy Policy",
+    "terms": "Terms",
+    "phone_hours": "Mon-Sat 08:00 - 18:00",
+    "location": "Algiers, Algeria",
+    "hours_full": "Mon - Sat: 08:00 - 18:00",
+    "copyright": "SARL Smart Technologie Innovation. All rights reserved.",
+    "privacy": "Privacy",
+    "terms_link": "Terms",
+    "cookies": "Cookies"
+  }
+}

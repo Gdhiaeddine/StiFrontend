@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { useTranslations } from "../[locale]/use-translations";
 
 const LinkedinIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -29,37 +30,6 @@ const YoutubeIcon = () => (
   </svg>
 );
 
-const columns = [
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#about" },
-      { label: "Careers", href: "#" },
-      { label: "News", href: "#news" },
-      { label: "Contact", href: "#contact" },
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Mobile Recharge", href: "#solutions" },
-      { label: "SIM Activation", href: "#solutions" },
-      { label: "Enterprise", href: "#enterprise" },
-      { label: "Internet", href: "#solutions" },
-      { label: "Support", href: "#support" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "FAQ", href: "#support" },
-      { label: "Documentation", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms", href: "#" },
-    ],
-  },
-];
-
 const socials = [
   { icon: <LinkedinIcon />, href: "#", label: "LinkedIn" },
   { icon: <FacebookIcon />, href: "#", label: "Facebook" },
@@ -68,10 +38,43 @@ const socials = [
 ];
 
 export default function Footer() {
+  const t = useTranslations();
+
+  const columns = [
+    {
+      title: t.footer.company,
+      links: [
+        { label: t.footer.about, href: "#about" },
+        { label: t.footer.careers, href: "#" },
+        { label: t.footer.news, href: "#news" },
+        { label: t.footer.contact_link, href: "#contact" },
+      ],
+    },
+    {
+      title: t.footer.solutions,
+      links: [
+        { label: t.footer.mobile_recharge, href: "#solutions" },
+        { label: t.footer.sim_activation, href: "#solutions" },
+        { label: t.footer.enterprise_link, href: "#enterprise" },
+        { label: t.footer.internet, href: "#solutions" },
+        { label: t.footer.support, href: "#support" },
+      ],
+    },
+    {
+      title: t.footer.resources,
+      links: [
+        { label: t.footer.faq, href: "#support" },
+        { label: t.footer.documentation, href: "#" },
+        { label: t.footer.privacy_policy, href: "#" },
+        { label: t.footer.terms, href: "#" },
+      ],
+    },
+  ];
+
   return (
     <footer className="bg-gray-900 pt-20 pb-8">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1.3fr]">
+        <div className="grid gap-10 md:gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1.3fr]">
           {/* Brand */}
           <div>
             <div className="mb-5 flex items-center gap-2.5">
@@ -84,8 +87,7 @@ export default function Footer() {
               />
             </div>
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-gray-400">
-              Official Ooredoo distributor providing premium telecom solutions
-              for businesses and individuals across Algeria.
+              {t.footer.brand_description}
             </p>
             <div className="flex gap-3">
               {socials.map((s) => (
@@ -125,14 +127,14 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="mb-4 text-sm font-bold text-white" style={{ fontFamily: "var(--font-manrope)" }}>
-              Contact
+              {t.footer.contact}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
                 <Phone size={15} className="mt-0.5 shrink-0 text-gray-500" />
                 <div>
                   <div className="text-sm text-gray-300">0550 123 456</div>
-                  <div className="text-xs text-gray-500">Mon-Sat 08:00 - 18:00</div>
+                  <div className="text-xs text-gray-500">{t.footer.phone_hours}</div>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -141,11 +143,11 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin size={15} className="mt-0.5 shrink-0 text-gray-500" />
-                <span className="text-sm text-gray-300">Algiers, Algeria</span>
+                <span className="text-sm text-gray-300">{t.footer.location}</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock size={15} className="mt-0.5 shrink-0 text-gray-500" />
-                <span className="text-sm text-gray-300">Mon - Sat: 08:00 - 18:00</span>
+                <span className="text-sm text-gray-300">{t.footer.hours_full}</span>
               </li>
             </ul>
           </div>
@@ -154,12 +156,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} SARL Smart Technologie Innovation. All rights reserved.
+            &copy; {new Date().getFullYear()} {t.footer.copyright}
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-gray-500 transition-colors hover:text-white">Privacy</a>
-            <a href="#" className="text-xs text-gray-500 transition-colors hover:text-white">Terms</a>
-            <a href="#" className="text-xs text-gray-500 transition-colors hover:text-white">Cookies</a>
+            <a href="#" className="text-xs text-gray-500 transition-colors hover:text-white">{t.footer.privacy}</a>
+            <a href="#" className="text-xs text-gray-500 transition-colors hover:text-white">{t.footer.terms_link}</a>
+            <a href="#" className="text-xs text-gray-500 transition-colors hover:text-white">{t.footer.cookies}</a>
           </div>
         </div>
       </div>

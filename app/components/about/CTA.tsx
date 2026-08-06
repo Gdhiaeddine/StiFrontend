@@ -21,7 +21,7 @@ export default function CTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="mb-6 text-3xl font-extrabold text-white lg:text-5xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-6 text-3xl font-extrabold text-white md:text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-manrope)" }}>
             Let&apos;s Build the Future of
             <br />
             Connectivity Together

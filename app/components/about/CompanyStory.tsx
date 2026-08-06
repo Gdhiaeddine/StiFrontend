@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useScrollReveal } from "../../hooks";
+import Image from "next/image";
 
 export default function CompanyStory() {
   const { ref, visible } = useScrollReveal();
@@ -17,11 +18,15 @@ export default function CompanyStory() {
         >
           {/* Left — Image */}
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl">
-              <img
+            <div className="relative overflow-hidden rounded-3xl w-full h-[280px] sm:h-[400px] lg:h-[500px]">
+              <Image
                 src="/assets/hero.png"
                 alt="STI office and team"
-                className="w-full h-[400px] lg:h-[500px] object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={95}
+                className="object-cover transition-transform duration-700 hover:scale-105"
+                priority
               />
             </div>
             {/* Decorative accent */}
@@ -60,42 +65,17 @@ export default function CompanyStory() {
               className="space-y-4 text-gray-500 leading-relaxed"
             >
               <p>
-                Founded in 2023, SARL Smart Technologie Innovation began with a clear vision:
-                to bridge the gap between Algeria&apos;s growing telecommunications needs and
-                world-class distribution services. What started as a small team with big ambitions
-                has grown into one of the nation&apos;s most trusted telecom distributors.
+                Founded in 2023, SARL Smart Technologie Innovation (STI) was established with a clear mission: to provide a reliable and efficient distribution network for Ooredoo mobile recharge credit and prepaid SIM cards across Algeria. From the beginning, our focus has been on ensuring retailers, wholesalers, and business partners have continuous access to authentic Ooredoo products.
               </p>
               <p>
-                As the official Ooredoo distributor, we serve thousands of customers and business partners
-                across all 58 provinces of Algeria. Our commitment to excellence,
-                innovation, and customer satisfaction has earned us a reputation as the go-to
-                partner for telecommunications solutions.
+                As an official Ooredoo distributor, STI has built a trusted distribution network that serves partners throughout Algeria. By combining reliable product availability, fast delivery, competitive wholesale pricing, and dedicated customer support, we help our partners meet the growing demand for mobile connectivity.
               </p>
               <p>
-                Today, STI continues to expand its services, embracing digital transformation
-                and bringing cutting-edge connectivity solutions to businesses and individuals
-                throughout the country.
+                Today, STI continues to strengthen its distribution network by expanding its partner ecosystem, optimizing logistics, and delivering dependable mobile recharge credit and SIM card solutions that keep businesses and customers connected across the country.
               </p>
             </motion.div>
 
-            {/* CEO Signature */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8 inline-block rounded-2xl border border-gray-100 bg-white/80 px-6 py-4 shadow-[0_2px_16px_rgba(0,0,0,0.04)] backdrop-blur-sm"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-red-primary to-red-accent text-sm font-bold text-white">
-                  MB
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-gray-900">Mohamed Boudiaf</div>
-                  <div className="text-xs text-gray-500">Chief Executive Officer</div>
-                </div>
-              </div>
-            </motion.div>
+
           </div>
         </div>
       </div>

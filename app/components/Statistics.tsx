@@ -2,14 +2,9 @@
 
 import { Briefcase, Users, Handshake, MapPin, ThumbsUp } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
-const stats = [
-  { icon: <Briefcase size={24} />, title: "Decade of Excellence", label: "Proven expertise in telecom distribution built over many years" },
-  { icon: <Users size={24} />, title: "Massive Customer Base", label: "Trusted by tens of thousands of customers nationwide" },
-  { icon: <Handshake size={24} />, title: "Strong Partnerships", label: "Deep and lasting relationships with business partners across Algeria" },
-  { icon: <MapPin size={24} />, title: "All 58 Provinces", label: "Full nationwide coverage across every Algerian province" },
-  { icon: <ThumbsUp size={24} />, title: "Top Satisfaction", label: "Industry-leading customer satisfaction and retention" },
-];
+const icons = [<Briefcase size={24} />, <Users size={24} />, <Handshake size={24} />, <MapPin size={24} />, <ThumbsUp size={24} />];
 
 function StatCard({ icon, title, label }: { icon: React.ReactNode; title: string; label: string }) {
   const { ref, visible } = useScrollReveal(0.3);
@@ -34,6 +29,7 @@ function StatCard({ icon, title, label }: { icon: React.ReactNode; title: string
 
 export default function Statistics() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section className="py-28 lg:py-36 bg-gray-50">
@@ -45,15 +41,15 @@ export default function Statistics() {
           }`}
         >
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Our Numbers Speak
+            {t.statistics.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            Trusted by thousands of businesses and individuals across Algeria
+            {t.statistics.subtitle}
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
-          {stats.map((s) => (
-            <StatCard key={s.title} {...s} />
+        <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
+          {t.statistics.items.map((s, i) => (
+            <StatCard key={s.title} icon={icons[i]} title={s.title} label={s.label} />
           ))}
         </div>
       </div>

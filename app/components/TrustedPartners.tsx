@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
 export default function TrustedPartners() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section className="py-28 lg:py-36 bg-gray-50 overflow-hidden">
@@ -16,10 +18,10 @@ export default function TrustedPartners() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            Our Partner
+            {t.trustedPartners.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Trusted by Industry Leaders
+            {t.trustedPartners.title}
           </h2>
         </div>
 

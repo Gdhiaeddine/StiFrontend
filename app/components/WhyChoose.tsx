@@ -1,40 +1,10 @@
 "use client";
 
-import { ShieldCheck, Zap, Award, Lightbulb, Lock, Headphones } from "lucide-react";
+import { ShieldCheck, Package, Truck, Percent, Handshake, Headphones } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
-const features = [
-  {
-    icon: <ShieldCheck size={24} />,
-    title: "Official Ooredoo Partner",
-    description: "Authorized distributor with direct partnership and full certification from Ooredoo Algeria.",
-  },
-  {
-    icon: <Zap size={24} />,
-    title: "Fast Delivery",
-    description: "Rapid deployment of SIM cards, devices, and connectivity solutions across all 58 provinces.",
-  },
-  {
-    icon: <Award size={24} />,
-    title: "Certified Experts",
-    description: "Highly trained telecom professionals with deep expertise in enterprise and consumer solutions.",
-  },
-  {
-    icon: <Lightbulb size={24} />,
-    title: "Innovative Technologies",
-    description: "Cutting-edge IoT, cloud, and digital transformation solutions for modern businesses.",
-  },
-  {
-    icon: <Lock size={24} />,
-    title: "Secure Infrastructure",
-    description: "Enterprise-grade security and reliable network infrastructure for uninterrupted service.",
-  },
-  {
-    icon: <Headphones size={24} />,
-    title: "24/7 Professional Support",
-    description: "Round-the-clock technical support and dedicated account management for all clients.",
-  },
-];
+const icons = [<ShieldCheck size={24} />, <Package size={24} />, <Truck size={24} />, <Percent size={24} />, <Handshake size={24} />, <Headphones size={24} />];
 
 function FeatureCard({ icon, title, description, index }: { icon: React.ReactNode; title: string; description: string; index: number }) {
   const { ref, visible } = useScrollReveal(0.2);
@@ -64,6 +34,7 @@ function FeatureCard({ icon, title, description, index }: { icon: React.ReactNod
 
 export default function WhyChoose() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section className="py-28 lg:py-36 bg-gray-900">
@@ -75,18 +46,18 @@ export default function WhyChoose() {
           }`}
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-accent">
-            Why STI
+            {t.whyChoose.badge}
           </span>
           <h2 className="mb-4 text-3xl font-extrabold text-white lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Your Trusted Technology Partner
+            {t.whyChoose.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-400">
-            Six reasons why leading businesses choose STI for their telecom needs
+            {t.whyChoose.subtitle}
           </p>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f, i) => (
-            <FeatureCard key={f.title} {...f} index={i} />
+          {t.whyChoose.items.map((f, i) => (
+            <FeatureCard key={f.title} icon={icons[i]} title={f.title} description={f.description} index={i} />
           ))}
         </div>
       </div>

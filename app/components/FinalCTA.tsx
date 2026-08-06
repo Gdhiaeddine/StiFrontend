@@ -2,9 +2,11 @@
 
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "../hooks";
+import { useTranslations } from "../[locale]/use-translations";
 
 export default function FinalCTA() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
 
   return (
     <section id="contact" className="py-28 lg:py-36 bg-red-primary relative overflow-hidden">
@@ -23,28 +25,27 @@ export default function FinalCTA() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="mb-6 text-3xl font-extrabold text-white lg:text-5xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Ready to Grow with
+          <h2 className="mb-6 text-3xl font-extrabold text-white md:text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-manrope)" }}>
+            {t.finalCta.title_line1}
             <br />
-            Algeria&apos;s Trusted Telecom Partner?
+            {t.finalCta.title_line2}
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-white/80">
-            Whether you&apos;re a business looking for enterprise connectivity or an individual
-            seeking reliable telecom services, STI is here to help you succeed.
+            {t.finalCta.description}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
               className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-red-primary transition-all duration-250 hover:shadow-xl hover:scale-[1.03]"
             >
-              Contact Us
+              {t.finalCta.cta_primary}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-250 hover:bg-white/20 hover:scale-[1.03]"
             >
-              Request a Quote
+              {t.finalCta.cta_secondary}
             </a>
           </div>
         </div>

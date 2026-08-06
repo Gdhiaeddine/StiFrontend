@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "\u00c0 propos",
+    "solutions": "Solutions",
+    "products": "Produits",
+    "enterprise": "Entreprise",
+    "support": "Support",
+    "news": "Actualit\u00e9s",
+    "contact": "Contact",
+    "menu": "Menu",
+    "phone_hours": "Lun-Sam 08h00-18h00",
+    "solutions_sub": {
+      "mobile_recharge": "Cr\u00e9dit de Recharge Mobile",
+      "mobile_recharge_desc": "Cr\u00e9dit de recharge mobile Ooredoo en multiples d\u00e9nominations.",
+      "sim_cards": "Distribution de Cartes SIM",
+      "sim_cards_desc": "Cartes SIM pr\u00e9pay\u00e9es pour les d\u00e9taillants et partenaires de vente.",
+      "wholesale": "Solutions Grossiste",
+      "wholesale_desc": "Options d'achat en gros pour les revendeurs et grossistes.",
+      "partner": "Services Partenaires",
+      "partner_desc": "Support d\u00e9di\u00e9 pour les commandes et la disponibilit\u00e9 des produits."
+    },
+    "products_sub": {
+      "sim_cards": "Cartes SIM",
+      "sim_cards_desc": "Cartes SIM pr\u00e9pay\u00e9es et postpay\u00e9es pour tous les besoins",
+      "recharge": "Cartes de Recharge",
+      "recharge_desc": "Vouchers de recharge num\u00e9riques et physiques",
+      "routers": "Routeurs",
+      "routers_desc": "Routeurs 4G/5G et passerelles domestiques",
+      "plans": "Forfaits & Bundles",
+      "plans_desc": "Forfaits voix, donn\u00e9es et combin\u00e9s"
+    },
+    "enterprise_sub": {
+      "business": "Solutions Commerciales",
+      "business_desc": "Connectivit\u00e9 sur mesure pour les entreprises",
+      "dedicated": "Lignes D\u00e9di\u00e9es",
+      "dedicated_desc": "Lignes Internet d\u00e9di\u00e9es \u00e0 haute vitesse",
+      "security": "S\u00e9curit\u00e9",
+      "security_desc": "S\u00e9curit\u00e9 r\u00e9seau et solutions VPN",
+      "digital": "Transformation Num\u00e9rique",
+      "digital_desc": "IoT, cloud et enablement num\u00e9rique"
+    }
+  },
+  "hero": {
+    "badge": "Distributeur Officiel Ooredoo",
+    "title_line1": "Solutions",
+    "title_line2": "T\u00e9l\u00e9communication",
+    "title_line3": "Innovantes",
+    "title_line4": "pour l'Alg\u00e9rie",
+    "description": "SARL Smart Technologie Innovation est un distributeur officiel d'Ooredoo sp\u00e9cialis\u00e9 dans la distribution de cr\u00e9dits de recharge mobile et de cartes SIM. Nous fournissons des services de distribution t\u00e9l\u00e9com fiables, s\u00e9curis\u00e9s et efficaces, garantissant une livraison rapide, un support d'activation SIM transparent et un service client professionnel pour les d\u00e9taillants, les revendeurs, les entreprises et les particuliers \u00e0 travers l'Alg\u00e9rie.",
+    "cta_primary": "D\u00e9couvrir les Solutions",
+    "cta_secondary": "Contacter les Ventes"
+  },
+  "partnership": {
+    "badge": "Partenariat Officiel",
+    "title": "Distributeur Officiel Ooredoo",
+    "description": "SARL Smart Technologie Innovation est un distributeur Ooredoo autoris\u00e9 fournissant des services professionnels de t\u00e9l\u00e9com, distribution de recharge mobile, gestion SIM, connectivit\u00e9 d'entreprise et support client \u00e0 travers l'Alg\u00e9rie.",
+    "certification": "Certification officielle",
+    "partnership_feat": "Partenariat de confiance",
+    "nationwide": "Service national",
+    "enterprise_feat": "Expertise entreprise",
+    "cta": "En Savoir Plus"
+  },
+  "statistics": {
+    "title": "Nos Chiffres Parlent",
+    "subtitle": "La confiance de milliers d'entreprises et de particuliers \u00e0 travers l'Alg\u00e9rie",
+    "items": [
+      { "title": "Une D\u00e9cennie d'Excellence", "label": "Une expertise av\u00e9r\u00e9e en distribution t\u00e9l\u00e9com construite sur de nombreuses ann\u00e9es" },
+      { "title": "Une Client\u00e8le Massive", "label": "La confiance de dizaines de milliers de clients \u00e0 travers le pays" },
+      { "title": "Des Partenariats Solides", "label": "Des relations durables et profondes avec les partenaires commerciaux \u00e0 travers l'Alg\u00e9rie" },
+      { "title": "Les 58 Provinces", "label": "Couverture nationale compl\u00e8te dans chaque province alg\u00e9rienne" },
+      { "title": "Satisfaction Premium", "label": "Satisfaction et fid\u00e9lisation client de premier plan dans l'industrie" }
+    ]
+  },
+  "services": {
+    "badge": "Nos Activit\u00e9s",
+    "title": "Solutions T\u00e9l\u00e9com Compl\u00e8tes",
+    "subtitle": "De la distribution mobile \u00e0 la connectivit\u00e9 d'entreprise, STI fournit des services t\u00e9l\u00e9com complets adapt\u00e9s au march\u00e9 alg\u00e9rien.",
+    "cta": "En Savoir Plus",
+    "items": [
+      { "title": "Distribution Recharge Mobile", "description": "Distribution nationale de cr\u00e9dits de recharge mobile Ooredoo pour les d\u00e9taillants, grossistes et revendeurs agr\u00e9\u00e9s. Approvisionnement rapide, s\u00e9curis\u00e9 et fiable \u00e0 travers l'Alg\u00e9rie." },
+      { "title": "Distribution Cartes SIM", "description": "Distribution de cartes SIM pr\u00e9pay\u00e9es Ooredoo avec une disponibilit\u00e9 fiable pour les d\u00e9taillants, distributeurs et partenaires de vente \u00e0 travers l'Alg\u00e9rie." },
+      { "title": "R\u00e9seau d'Approvisionnement D\u00e9taillants", "description": "Livraison efficace de cr\u00e9dits de recharge et cartes SIM via un r\u00e9seau de distribution bien organis\u00e9, garantissant aux partenaires les produits dont ils ont besoin." },
+      { "title": "Solutions Cr\u00e9dit Grossiste", "description": "Distribution de cr\u00e9dits mobiles en gros con\u00e7ue pour les grossistes et grands r\u00e9seaux de d\u00e9tail, avec des prix comp\u00e9titifs et un service fiable." },
+      { "title": "Support Distributeurs & Partenaires", "description": "Support d\u00e9di\u00e9 aux distributeurs et revendeurs agr\u00e9\u00e9s, incluant la gestion des commandes, la disponibilit\u00e9 des produits et l'assistance op\u00e9rationnelle." },
+      { "title": "Services Distribution T\u00e9l\u00e9com", "description": "Distribution t\u00e9l\u00e9com professionnelle ax\u00e9e sur la recharge mobile et l'approvisionnement en cartes SIM, aidant les entreprises \u00e0 servir leurs clients efficacement \u00e0 travers l'Alg\u00e9rie." }
+    ]
+  },
+  "whyChoose": {
+    "badge": "Pourquoi STI",
+    "title": "Votre Partenaire Technologique de Confiance",
+    "subtitle": "Six raisons pour lesquelles les entreprises leaders choisissent STI pour leurs besoins t\u00e9l\u00e9com",
+    "items": [
+      { "title": "Distributeur Officiel Ooredoo", "description": "Distributeur Ooredoo agr\u00e9\u00e9 fournissant des cr\u00e9dits de recharge mobile authentiques et des cartes SIM officielles \u00e0 travers l'Alg\u00e9rie." },
+      { "title": "Disponibilit\u00e9 Fiable des Produits", "description": "Stock continu de cr\u00e9dits de recharge et cartes SIM pour garantir un approvisionnement ininterrompu pour les d\u00e9taillants et partenaires." },
+      { "title": "R\u00e9seau de Distribution Rapide", "description": "Livraison efficace et ponctuelle de cr\u00e9dits mobiles et cartes SIM via un r\u00e9seau de distribution national de confiance." },
+      { "title": "Prix Grossistes Comp\u00e9titifs", "description": "Prix attractifs et options d'achat flexibles con\u00e7us pour les d\u00e9taillants, grossistes et revendeurs." },
+      { "title": "Partenaire Commercial Fiable", "description": "Construction de partenariats \u00e0 long terme gr\u00e2ce \u00e0 un service fiable, des op\u00e9rations transparentes et une qualit\u00e9 de produit constante." },
+      { "title": "Support Client D\u00e9di\u00e9", "description": "\u00c9quipe de support r\u00e9active assistant les partenaires avec les commandes, la disponibilit\u00e9 des produits et les demandes de distribution." }
+    ]
+  },
+  "products": {
+    "badge": "Nos Produits",
+    "title": "Produits Vedettes",
+    "subtitle": "D\u00e9couvrez notre gamme de produits t\u00e9l\u00e9com et appareils premium",
+    "cta": "Voir le Produit",
+    "items": [
+      { "title": "Cr\u00e9dit de Recharge Ooredoo", "description": "Cr\u00e9dit de recharge mobile num\u00e9rique disponible en multiples d\u00e9nominations pour les d\u00e9taillants, grossistes et revendeurs agr\u00e9\u00e9s." },
+      { "title": "Cartes SIM Pr\u00e9pay\u00e9es Ooredoo", "description": "Cartes SIM pr\u00e9pay\u00e9es officielles pr\u00eates \u00e0 la distribution via notre r\u00e9seau de partenaires \u00e0 travers l'Alg\u00e9rie." },
+      { "title": "Packs Bienvenue Ooredoo", "description": "Packs de d\u00e9marrage SIM incluant des cartes SIM pr\u00e9pay\u00e9es et du cr\u00e9dit mobile initial pour les nouveaux clients." },
+      { "title": "Cr\u00e9dit Mobile en Gros", "description": "Solutions de recharge mobile en gros con\u00e7ues pour les distributeurs, d\u00e9taillants et partenaires commerciaux." },
+      { "title": "Solutions Distribution D\u00e9tail", "description": "Services de distribution t\u00e9l\u00e9com complets fournissant un approvisionnement fiable en cr\u00e9dits de recharge Ooredoo et cartes SIM." }
+    ]
+  },
+  "enterprise": {
+    "badge": "Solutions pour Nos Partenaires",
+    "title": "Solutions Commerciales",
+    "subtitle": "Services de distribution t\u00e9l\u00e9com fiables pour les d\u00e9taillants, grossistes et partenaires commerciaux.",
+    "cta": "Devenir Partenaire",
+    "checklist": [
+      "Distribution Recharge Mobile en Gros",
+      "Approvisionnement Cartes SIM Grossiste",
+      "Partenariat D\u00e9taillants & Revendeurs",
+      "Traitement Rapide des Commandes",
+      "Disponibilit\u00e9 Fiable des Stocks",
+      "Support Partenaire D\u00e9di\u00e9"
+    ]
+  },
+  "process": {
+    "badge": "Comment Nous Travailons",
+    "title": "Notre Flux de Distribution",
+    "subtitle": "Du partenariat \u00e0 la livraison, une exp\u00e9rience de distribution sans faille",
+    "steps": [
+      { "title": "Int\u00e9gration Partenaire", "description": "Devenez revendeur agr\u00e9\u00e9 avec formation, outils et support d\u00e9di\u00e9 d\u00e8s le premier jour." },
+      { "title": "Approvisionnement Produits", "description": "Acc\u00e9dez \u00e0 la gamme compl\u00e8te de cartes SIM, vouchers de recharge, appareils et forfaits Ooredoo." },
+      { "title": "Distribution & Livraison", "description": "Livraison rapide et fiable aux d\u00e9taillants et entreprises \u00e0 travers les 58 provinces." },
+      { "title": "Support Continu", "description": "Gestion de compte continue, assistance technique et reporting de performance." }
+    ]
+  },
+  "testimonials": {
+    "badge": "T\u00e9moignages",
+    "title": "Ce Que Disent Nos Clients",
+    "subtitle": "La confiance des entreprises leaders \u00e0 travers l'Alg\u00e9rie",
+    "items": [
+      { "name": "Ahmed Benali", "role": "Directeur IT, Sonatrach", "review": "STI est notre partenaire t\u00e9l\u00e9com de confiance depuis plus de 5 ans. Leurs solutions de connectivit\u00e9 d'entreprise sont excellentes et leur \u00e9quipe de support est toujours r\u00e9active." },
+      { "name": "Fatima Hadj", "role": "Responsable Op\u00e9rations, Cevital", "review": "Changer pour STI pour la gestion SIM de notre flotte a \u00e9t\u00e9 un tournant. Le syst\u00e8me de recharge en gros nous fait gagner des heures chaque semaine et le reporting est excellent." },
+      { "name": "Youcef Mansouri", "role": "PDG, TechStart Alg\u00e9rie", "review": "En tant que startup, nous avions besoin d'une connectivit\u00e9 flexible et abordable. STI a fourni exactement cela avec leurs packages commerciaux et la gestion de compte d\u00e9di\u00e9e." }
+    ]
+  },
+  "trustedPartners": {
+    "badge": "Notre Partenaire",
+    "title": "La Confiance des Leaders du March\u00e9"
+  },
+  "latestNews": {
+    "badge": "Derni\u00e8res Actualit\u00e9s",
+    "title": "Restez Inform\u00e9",
+    "subtitle": "Les derni\u00e8res nouvelles de STI et de l'industrie t\u00e9l\u00e9com alg\u00e9rienne",
+    "cta": "Lire la Suite",
+    "items": [
+      { "category": "Actualit\u00e9s Entreprise", "title": "STI \u00e9tend ses solutions d'entreprise \u00e0 12 nouvelles provinces", "excerpt": "Smart Technologie Innovation poursuit son expansion nationale avec de nouveaux services de connectivit\u00e9 d'entreprise dans des r\u00e9gions sous-servies.", "date": "15 janv. 2026" },
+      { "category": "Technologie", "title": "Introduction de routeurs business 5G pour les entreprises alg\u00e9riennes", "excerpt": "STI lance une nouvelle gamme de routeurs compatibles 5G con\u00e7us pour r\u00e9pondre \u00e0 la demande croissante de connectivit\u00e9 business \u00e0 haute vitesse.", "date": "3 f\u00e9vr. 2026" },
+      { "category": "Partenariat", "title": "STI et Ooredoo renforcent leur partenariat de distribution pour 2026", "excerpt": "Le partenariat \u00e9largi apportera des services mobiles am\u00e9lior\u00e9s et des solutions num\u00e9riques \u00e0 plus de clients \u00e0 travers l'Alg\u00e9rie.", "date": "10 mars 2026" }
+    ]
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fr\u00e9quemment Pos\u00e9es",
+    "subtitle": "Trouvez des r\u00e9ponses aux questions courantes sur nos services de distribution de cr\u00e9dits de recharge mobile et cartes SIM.",
+    "items": [
+      { "q": "Comment devenir revendeur STI ?", "a": "Devenir revendeur STI est simple. Contactez notre \u00e9quipe commerciale pour postuler \u00e0 un partenariat. Nous offrons des prix grossistes comp\u00e9titifs, une disponibilit\u00e9 fiable des produits et un support continu pour les d\u00e9taillants et distributeurs agr\u00e9\u00e9s \u00e0 travers l'Alg\u00e9rie." },
+      { "q": "Quels produits STI distribue-t-il ?", "a": "STI est sp\u00e9cialis\u00e9 dans la distribution de cr\u00e9dits de recharge mobile officiels Ooredoo et de cartes SIM pr\u00e9pay\u00e9es Ooredoo pour les d\u00e9taillants, grossistes et partenaires commerciaux \u00e0 travers l'Alg\u00e9rie." },
+      { "q": "Comment passer une commande ?", "a": "Les commandes peuvent \u00e8tre pass\u00e9es en contactant notre \u00e9quipe commerciale ou via votre repr\u00e9sentant commercial assign\u00e9. Nous garantissons un traitement rapide des commandes et une livraison fiable des produits." },
+      { "q": "Offrez-vous des prix grossistes ?", "a": "Oui. Nous fournissons des prix grossistes comp\u00e9titifs et des options d'achat flexibles pour les d\u00e9taillants, grossistes et partenaires de distribution agr\u00e9\u00e9s bas\u00e9s sur le volume de commande." },
+      { "q": "Comment contacter le support client ?", "a": "Notre \u00e9quipe de support est disponible pour vous aider avec la disponibilit\u00e9 des produits, les commandes, les partenariats revendeurs et les services de distribution. Vous pouvez nous contacter par t\u00e9l\u00e9phone, e-mail ou via le formulaire de contact sur notre site web." }
+    ]
+  },
+  "finalCta": {
+    "title_line1": "Pr\u00eat \u00e0 Grandir avec le",
+    "title_line2": "Partenaire T\u00e9l\u00e9com de Confiance de l'Alg\u00e9rie ?",
+    "description": "Que vous soyez une entreprise \u00e0 la recherche de connectivit\u00e9 d'entreprise ou un particulier \u00e0 la recherche de services t\u00e9l\u00e9com fiables, STI est l\u00e0 pour vous aider \u00e0 r\u00e9ussir.",
+    "cta_primary": "Nous Contacter",
+    "cta_secondary": "Demander un Devis"
+  },
+  "footer": {
+    "brand_description": "Distributeur officiel Ooredoo fournissant des solutions t\u00e9l\u00e9com premium pour les entreprises et les particuliers \u00e0 travers l'Alg\u00e9rie.",
+    "company": "Entreprise",
+    "solutions": "Solutions",
+    "resources": "Ressources",
+    "contact": "Contact",
+    "about": "\u00c0 propos",
+    "careers": "Carri\u00e8res",
+    "news": "Actualit\u00e9s",
+    "contact_link": "Contact",
+    "mobile_recharge": "Recharge Mobile",
+    "sim_activation": "Activation SIM",
+    "enterprise_link": "Entreprise",
+    "internet": "Internet",
+    "support": "Support",
+    "faq": "FAQ",
+    "documentation": "Documentation",
+    "privacy_policy": "Politique de Confidentialit\u00e9",
+    "terms": "Conditions",
+    "phone_hours": "Lun-Sam 08h00 - 18h00",
+    "location": "Alger, Alg\u00e9rie",
+    "hours_full": "Lun - Sam : 08h00 - 18h00",
+    "copyright": "SARL Smart Technologie Innovation. Tous droits r\u00e9serv\u00e9s.",
+    "privacy": "Confidentialit\u00e9",
+    "terms_link": "Conditions",
+    "cookies": "Cookies"
+  }
+}

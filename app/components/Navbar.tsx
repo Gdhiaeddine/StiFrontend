@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Phone,
   ChevronDown,
   Menu,
   X,
   Globe,
-  Wifi,
   Smartphone,
   Building2,
   Zap,
@@ -19,101 +19,118 @@ import {
   Router,
   CardSim,
 } from "lucide-react";
+import { useTranslations } from "../[locale]/use-translations";
 
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  {
-    label: "Solutions",
-    href: "#solutions",
-    children: [
-      {
-        icon: <Smartphone size={20} />,
-        title: "Mobile Distribution",
-        description: "SIM cards, recharge vouchers, and mobile plans",
-      },
-      {
-        icon: <Wifi size={20} />,
-        title: "Internet Solutions",
-        description: "Broadband, fiber, and wireless internet for homes",
-      },
-      {
-        icon: <Router size={20} />,
-        title: "Routers & Devices",
-        description: "Premium routers, modems, and connected devices",
-      },
-      {
-        icon: <Building2 size={20} />,
-        title: "Enterprise Connectivity",
-        description: "Dedicated lines, MPLS, and corporate solutions",
-      },
-    ],
-  },
-  {
-    label: "Products",
-    href: "#products",
-    children: [
-      {
-        icon: <CardSim size={20} />,
-        title: "SIM Cards",
-        description: "Prepaid and postpaid SIM cards for every need",
-      },
-      {
-        icon: <CreditCard size={20} />,
-        title: "Recharge Cards",
-        description: "Digital and physical recharge vouchers",
-      },
-      {
-        icon: <Router size={20} />,
-        title: "Routers",
-        description: "4G/5G routers and home gateways",
-      },
-      {
-        icon: <Radio size={20} />,
-        title: "Plans & Bundles",
-        description: "Voice, data, and combo plans",
-      },
-    ],
-  },
-  {
-    label: "Enterprise",
-    href: "#enterprise",
-    children: [
-      {
-        icon: <Building2 size={20} />,
-        title: "Business Solutions",
-        description: "Tailored connectivity for enterprises",
-      },
-      {
-        icon: <Zap size={20} />,
-        title: "Dedicated Lines",
-        description: "High-speed dedicated internet lines",
-      },
-      {
-        icon: <Shield size={20} />,
-        title: "Security",
-        description: "Network security and VPN solutions",
-      },
-      {
-        icon: <BarChart3 size={20} />,
-        title: "Digital Transformation",
-        description: "IoT, cloud, and digital enablement",
-      },
-    ],
-  },
-  { label: "Support", href: "#support" },
-  { label: "News", href: "#news" },
-  { label: "Contact", href: "#contact" },
-];
-
-const languages = ["FR", "EN", "AR"];
+const languages = ["en", "fr", "ar"];
 
 export default function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const t = useTranslations();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [lang, setLang] = useState("EN");
   const [langOpen, setLangOpen] = useState(false);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+
+  const currentLocale = pathname.split("/")[1] || "en";
+
+  const navItems = [
+    { label: t.nav.home, href: `/${currentLocale}` },
+    { label: t.nav.about, href: `/${currentLocale}/about` },
+    {
+      label: t.nav.solutions,
+      href: `/${currentLocale}/solutions`,
+      children: [
+        {
+          icon: <Smartphone size={20} />,
+          title: t.nav.solutions_sub.mobile_recharge,
+          description: t.nav.solutions_sub.mobile_recharge_desc,
+          href: `/${currentLocale}/solutions/mobile-recharge-credit`,
+        },
+        {
+          icon: <CardSim size={20} />,
+          title: t.nav.solutions_sub.sim_cards,
+          description: t.nav.solutions_sub.sim_cards_desc,
+          href: `/${currentLocale}/solutions/prepaid-sim-cards`,
+        },
+        {
+          icon: <Building2 size={20} />,
+          title: t.nav.solutions_sub.wholesale,
+          description: t.nav.solutions_sub.wholesale_desc,
+          href: `/${currentLocale}/solutions/wholesale-recharge`,
+        },
+        {
+          icon: <Zap size={20} />,
+          title: t.nav.solutions_sub.partner,
+          description: t.nav.solutions_sub.partner_desc,
+          href: `/${currentLocale}/solutions/retail-partner`,
+        },
+      ],
+    },
+    {
+      label: t.nav.products,
+      href: "#products",
+      children: [
+        {
+          icon: <CardSim size={20} />,
+          title: t.nav.products_sub.sim_cards,
+          description: t.nav.products_sub.sim_cards_desc,
+          href: "#products",
+        },
+        {
+          icon: <CreditCard size={20} />,
+          title: t.nav.products_sub.recharge,
+          description: t.nav.products_sub.recharge_desc,
+          href: "#products",
+        },
+        {
+          icon: <Router size={20} />,
+          title: t.nav.products_sub.routers,
+          description: t.nav.products_sub.routers_desc,
+          href: "#products",
+        },
+        {
+          icon: <Radio size={20} />,
+          title: t.nav.products_sub.plans,
+          description: t.nav.products_sub.plans_desc,
+          href: "#products",
+        },
+      ],
+    },
+    {
+      label: t.nav.enterprise,
+      href: "#enterprise",
+      children: [
+        {
+          icon: <Building2 size={20} />,
+          title: t.nav.enterprise_sub.business,
+          description: t.nav.enterprise_sub.business_desc,
+          href: "#enterprise",
+        },
+        {
+          icon: <Zap size={20} />,
+          title: t.nav.enterprise_sub.dedicated,
+          description: t.nav.enterprise_sub.dedicated_desc,
+          href: "#enterprise",
+        },
+        {
+          icon: <Shield size={20} />,
+          title: t.nav.enterprise_sub.security,
+          description: t.nav.enterprise_sub.security_desc,
+          href: "#enterprise",
+        },
+        {
+          icon: <BarChart3 size={20} />,
+          title: t.nav.enterprise_sub.digital,
+          description: t.nav.enterprise_sub.digital_desc,
+          href: "#enterprise",
+        },
+      ],
+    },
+    { label: t.nav.support, href: "#support" },
+    { label: t.nav.news, href: "#news" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -133,6 +150,12 @@ export default function Navbar() {
     setExpandedMobile(null);
   }, []);
 
+  const switchLocale = (locale: string) => {
+    const segments = pathname.split("/");
+    segments[1] = locale;
+    router.push(segments.join("/"));
+  };
+
   return (
     <>
       <nav
@@ -141,17 +164,17 @@ export default function Navbar() {
             ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
             : "bg-transparent"
         }`}
-        style={{ height: 88 }}
+        style={{ height: 76 }}
       >
         <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-6 lg:px-8">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.05]">
+          <a href={`/${currentLocale}`} className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.05]">
             <Image
               src="/assets/logo.png"
               alt="STI - Smart Technologie Innovation"
               width={180}
               height={60}
-              className="h-14 w-auto"
+              className="h-12 w-auto"
               priority
             />
           </a>
@@ -162,7 +185,7 @@ export default function Navbar() {
               <div key={item.label} className="nav-item relative">
                 <a
                   href={item.href}
-                  className={`nav-link flex items-center gap-1 px-3.5 py-2 text-[15px] font-semibold transition-colors rounded-lg hover:bg-gray-50 ${
+                  className={`nav-link flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold transition-colors rounded-lg hover:bg-gray-50 ${
                     scrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-700 hover:text-gray-900"
                   }`}
                 >
@@ -178,15 +201,15 @@ export default function Navbar() {
                         {item.children.map((child) => (
                           <a
                             key={child.title}
-                            href={item.href}
+                            href={child.href ?? item.href}
                             className="flex items-start gap-3 rounded-xl p-3.5 transition-all hover:bg-gray-50 group"
                           >
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-primary/8 text-red-primary transition-colors group-hover:bg-red-primary group-hover:text-white">
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-red-primary/8 text-red-primary transition-colors group-hover:bg-red-primary group-hover:text-white">
                               {child.icon}
                             </div>
                             <div>
-                              <div className="text-[13px] font-semibold text-gray-900">{child.title}</div>
-                              <div className="mt-0.5 text-[12px] leading-relaxed text-gray-500">
+                              <div className="text-[12px] font-semibold text-gray-900">{child.title}</div>
+                              <div className="mt-0.5 text-[11px] leading-relaxed text-gray-500">
                                 {child.description}
                               </div>
                             </div>
@@ -206,10 +229,10 @@ export default function Navbar() {
             <div className="relative hidden md:block">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50/80 px-3 py-1.5 text-[12px] font-semibold text-gray-700 transition-all hover:bg-gray-100"
+                className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50/80 px-2.5 py-1 text-[11px] font-semibold text-gray-700 transition-all hover:bg-gray-100"
               >
                 <Globe size={14} />
-                {lang}
+                {currentLocale.toUpperCase()}
                 <ChevronDown size={12} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
               </button>
               {langOpen && (
@@ -217,12 +240,15 @@ export default function Navbar() {
                   {languages.map((l) => (
                     <button
                       key={l}
-                      onClick={() => { setLang(l); setLangOpen(false); }}
-                      className={`flex w-full items-center px-3 py-2 text-[13px] font-medium transition-colors hover:bg-gray-50 ${
-                        lang === l ? "text-red-primary" : "text-gray-700"
+                      onClick={() => {
+                        switchLocale(l);
+                        setLangOpen(false);
+                      }}
+                      className={`flex w-full items-center px-3 py-1.5 text-[12px] font-medium transition-colors hover:bg-gray-50 ${
+                        currentLocale === l ? "text-red-primary" : "text-gray-700"
                       }`}
                     >
-                      {l}
+                      {l.toUpperCase()}
                     </button>
                   ))}
                 </div>
@@ -236,8 +262,8 @@ export default function Navbar() {
             >
               <Phone size={15} />
               <div className="text-right">
-                <div className="text-[13px] font-semibold leading-tight">0550 123 456</div>
-                <div className="text-[10px] text-gray-400">Mon-Sat 08:00-18:00</div>
+                <div className="text-[12px] font-semibold leading-tight">0550 123 456</div>
+                <div className="text-[9px] text-gray-400">{t.nav.phone_hours}</div>
               </div>
             </a>
 
@@ -265,9 +291,9 @@ export default function Navbar() {
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex h-[88px] items-center justify-between border-b border-gray-100 px-6">
+          <div className="flex h-[76px] items-center justify-between border-b border-gray-100 px-6">
             <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "var(--font-manrope)" }}>
-              Menu
+              {t.nav.menu}
             </span>
             <button
               aria-label="Close menu"
@@ -277,14 +303,14 @@ export default function Navbar() {
               <X size={18} />
             </button>
           </div>
-          <div className="overflow-y-auto px-4 py-4" style={{ height: "calc(100vh - 88px)" }}>
+          <div className="overflow-y-auto px-4 py-4" style={{ height: "calc(100vh - 76px)" }}>
             {navItems.map((item) => (
               <div key={item.label} className="border-b border-gray-50">
                 {item.children ? (
                   <>
                     <button
                       onClick={() => setExpandedMobile(expandedMobile === item.label ? null : item.label)}
-                      className="flex w-full items-center justify-between py-3.5 text-[15px] font-semibold text-gray-700"
+                      className="flex w-full items-center justify-between py-3 text-[13px] font-semibold text-gray-700"
                     >
                       {item.label}
                       <ChevronDown
@@ -300,7 +326,7 @@ export default function Navbar() {
                       {item.children.map((child) => (
                         <a
                           key={child.title}
-                          href={item.href}
+                          href={child.href ?? item.href}
                           onClick={closeMobile}
                           className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-gray-50"
                         >
@@ -308,8 +334,8 @@ export default function Navbar() {
                             {child.icon}
                           </div>
                           <div>
-                            <div className="text-[13px] font-semibold text-gray-900">{child.title}</div>
-                            <div className="text-[11px] text-gray-500">{child.description}</div>
+                            <div className="text-[12px] font-semibold text-gray-900">{child.title}</div>
+                            <div className="text-[10px] text-gray-500">{child.description}</div>
                           </div>
                         </a>
                       ))}
@@ -319,7 +345,7 @@ export default function Navbar() {
                   <a
                     href={item.href}
                     onClick={closeMobile}
-                    className="block py-3.5 text-[15px] font-semibold text-gray-700 hover:text-red-primary"
+                    className="block py-3 text-[13px] font-semibold text-gray-700 hover:text-red-primary"
                   >
                     {item.label}
                   </a>
@@ -333,10 +359,31 @@ export default function Navbar() {
               >
                 <Phone size={16} />
                 <div>
-                  <div className="text-[13px] font-semibold">0550 123 456</div>
-                  <div className="text-[11px] text-gray-400">Mon-Sat 08:00-18:00</div>
+                  <div className="text-[12px] font-semibold">0550 123 456</div>
+                  <div className="text-[10px] text-gray-400">{t.nav.phone_hours}</div>
                 </div>
               </a>
+              <div className="flex items-center gap-2 px-4 py-3">
+                <Globe size={16} className="text-gray-500" />
+                <div className="flex gap-2">
+                  {languages.map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => {
+                        switchLocale(l);
+                        closeMobile();
+                      }}
+                      className={`px-2.5 py-1 text-[11px] font-semibold rounded-lg transition-colors ${
+                        currentLocale === l
+                          ? "bg-red-primary text-white"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                    >
+                      {l.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
