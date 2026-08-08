@@ -4,8 +4,15 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "../../[locale]/use-translations";
 
 export default function Hero() {
+  const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
+  const heroT = t.aboutPage.hero;
+
   return (
     <section className="relative flex items-center bg-white pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       {/* Background pattern */}
@@ -24,9 +31,9 @@ export default function Hero() {
           className="mb-8"
         >
           <ol className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-400">
-            <li><Link href="/" className="transition-colors hover:text-red-primary">Home</Link></li>
-            <li><ChevronRight size={12} /></li>
-            <li className="text-gray-700">About</li>
+            <li><Link href={`/${currentLocale}`} className="transition-colors hover:text-red-primary">{heroT.breadcrumb_home}</Link></li>
+            <li><ChevronRight size={12} className="rtl:rotate-180" /></li>
+            <li className="text-gray-700">{heroT.breadcrumb_current}</li>
           </ol>
         </motion.nav>
 
@@ -39,7 +46,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-                About Us
+                {heroT.badge}
               </span>
             </motion.div>
 
@@ -48,9 +55,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 lg:text-5xl xl:text-6xl"
-              style={{ fontFamily: "var(--font-manrope)" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              About <span className="text-red-primary">STI</span>
+              {heroT.title_line1} <span className="text-red-primary">{heroT.title_line2}</span>
             </motion.h1>
 
             <motion.p
@@ -59,7 +66,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="max-w-xl text-lg leading-relaxed text-gray-500"
             >
-              SARL Smart Technologie Innovation (STI) is an official Ooredoo distributor specializing in the distribution of mobile recharge credit and prepaid SIM cards across Algeria. We are committed to providing reliable supply, fast distribution, competitive wholesale solutions, and exceptional support to retailers, wholesalers, and business partners, ensuring seamless access to Ooredoo telecom products nationwide.
+              {heroT.description}
             </motion.p>
           </div>
 

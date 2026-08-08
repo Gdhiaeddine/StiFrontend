@@ -21,7 +21,7 @@ function FeatureCard({ icon, title, description, index }: { icon: React.ReactNod
         <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-primary/20 text-red-primary transition-colors group-hover:bg-red-primary group-hover:text-white">
           {icon}
         </div>
-        <h3 className="mb-3 text-lg font-bold text-white" style={{ fontFamily: "var(--font-manrope)" }}>
+        <h3 className="mb-3 text-lg font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
           {title}
         </h3>
         <p className="text-sm leading-relaxed text-gray-400">
@@ -48,7 +48,7 @@ export default function WhyChoose() {
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-accent">
             {t.whyChoose.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-white lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-4 text-3xl font-extrabold text-white lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.whyChoose.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-400">

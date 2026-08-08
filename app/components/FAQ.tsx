@@ -22,7 +22,7 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
         className="flex w-full items-center justify-between py-5 text-left"
         aria-expanded={open}
       >
-        <span className="pr-4 text-base font-semibold text-gray-900" style={{ fontFamily: "var(--font-manrope)" }}>
+        <span className="pr-4 text-base font-semibold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
           {q}
         </span>
         <ChevronDown
@@ -59,7 +59,7 @@ export default function FAQ() {
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
             {t.faq.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.faq.title}
           </h2>
           <p className="mx-auto max-w-2xl text-gray-500">

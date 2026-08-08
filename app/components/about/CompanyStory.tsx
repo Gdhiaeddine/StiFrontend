@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "../../hooks";
 import Image from "next/image";
+import { useTranslations } from "../../[locale]/use-translations";
 
 export default function CompanyStory() {
   const { ref, visible } = useScrollReveal();
+  const t = useTranslations();
+  const storyT = t.aboutPage.story;
 
   return (
     <section className="py-28 lg:py-36 bg-white">
@@ -43,7 +46,7 @@ export default function CompanyStory() {
               transition={{ duration: 0.5 }}
               className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary"
             >
-              Our Story
+              {storyT.badge}
             </motion.span>
 
             <motion.h2
@@ -52,9 +55,9 @@ export default function CompanyStory() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-6 text-3xl font-extrabold text-gray-900 lg:text-4xl"
-              style={{ fontFamily: "var(--font-manrope)" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              Building Algeria&apos;s Telecom Future
+              {storyT.title}
             </motion.h2>
 
             <motion.div
@@ -64,18 +67,10 @@ export default function CompanyStory() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4 text-gray-500 leading-relaxed"
             >
-              <p>
-                Founded in 2023, SARL Smart Technologie Innovation (STI) was established with a clear mission: to provide a reliable and efficient distribution network for Ooredoo mobile recharge credit and prepaid SIM cards across Algeria. From the beginning, our focus has been on ensuring retailers, wholesalers, and business partners have continuous access to authentic Ooredoo products.
-              </p>
-              <p>
-                As an official Ooredoo distributor, STI has built a trusted distribution network that serves partners throughout Algeria. By combining reliable product availability, fast delivery, competitive wholesale pricing, and dedicated customer support, we help our partners meet the growing demand for mobile connectivity.
-              </p>
-              <p>
-                Today, STI continues to strengthen its distribution network by expanding its partner ecosystem, optimizing logistics, and delivering dependable mobile recharge credit and SIM card solutions that keep businesses and customers connected across the country.
-              </p>
+              <p>{storyT.p1}</p>
+              <p>{storyT.p2}</p>
+              <p>{storyT.p3}</p>
             </motion.div>
-
-
           </div>
         </div>
       </div>

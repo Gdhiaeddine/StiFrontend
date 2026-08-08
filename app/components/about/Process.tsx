@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { MessageSquare, Search, Rocket, LifeBuoy } from "lucide-react";
+import { useTranslations } from "../../[locale]/use-translations";
 
-const steps = [
-  { num: "01", icon: <MessageSquare size={22} />, title: "Consultation", description: "We discuss your business needs and telecom requirements in detail." },
-  { num: "02", icon: <Search size={22} />, title: "Planning", description: "Our experts analyze your infrastructure and design optimal solutions." },
-  { num: "03", icon: <Rocket size={22} />, title: "Deployment", description: "Fast and professional implementation with minimal disruption." },
-  { num: "04", icon: <LifeBuoy size={22} />, title: "Continuous Support", description: "Ongoing monitoring, maintenance, and 24/7 technical assistance." },
+const stepIcons = [
+  <MessageSquare key="1" size={22} />,
+  <Search key="2" size={22} />,
+  <Rocket key="3" size={22} />,
+  <LifeBuoy key="4" size={22} />,
 ];
 
 const container = {
@@ -21,6 +22,9 @@ const item = {
 };
 
 export default function Process() {
+  const t = useTranslations();
+  const procT = t.aboutPage.process;
+
   return (
     <section className="py-28 lg:py-36 bg-gray-50">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
@@ -32,13 +36,13 @@ export default function Process() {
           className="mb-16 text-center"
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            How We Work
+            {procT.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Our Process
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+            {procT.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            A streamlined approach from consultation to deployment and beyond
+            {procT.subtitle}
           </p>
         </motion.div>
 
@@ -47,28 +51,26 @@ export default function Process() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+          className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {steps.map((step, i) => (
+          {/* Timeline Connector Line */}
+          <div className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-red-primary/20 via-red-primary/40 to-red-primary/20" />
+
+          {procT.steps.map((step, i) => (
             <motion.div
               key={step.title}
               variants={item}
-              className="relative flex flex-col items-center text-center"
+              className="relative flex flex-col items-center text-center z-10"
             >
-              {/* Connector */}
-              {i < steps.length - 1 && (
-                <div className="absolute left-[calc(50%+44px)] top-10 hidden h-[2px] w-[calc(100%-88px)] bg-gradient-to-r from-red-primary/30 to-red-primary/10 lg:block" />
-              )}
-
               <div className="relative mb-6">
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-gray-100 bg-white text-red-primary shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-                  {step.icon}
+                  {stepIcons[i % stepIcons.length]}
                 </div>
-                <span className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-red-primary text-[11px] font-bold text-white">
-                  {step.num}
+                <span className="absolute -right-2 -top-2 rtl:-right-auto rtl:-left-2 flex h-7 w-7 items-center justify-center rounded-full bg-red-primary text-[11px] font-bold text-white">
+                  {step.num || `0${i + 1}`}
                 </span>
               </div>
-              <h3 className="mb-2 text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-manrope)" }}>
+              <h3 className="mb-2 text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
                 {step.title}
               </h3>
               <p className="max-w-[220px] text-sm text-gray-500">

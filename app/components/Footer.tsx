@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useTranslations } from "../[locale]/use-translations";
 
@@ -39,34 +40,36 @@ const socials = [
 
 export default function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
 
   const columns = [
     {
       title: t.footer.company,
       links: [
-        { label: t.footer.about, href: "#about" },
-        { label: t.footer.careers, href: "#" },
-        { label: t.footer.news, href: "#news" },
-        { label: t.footer.contact_link, href: "#contact" },
+        { label: t.footer.about, href: `/${currentLocale}/about` },
+        { label: t.footer.careers, href: `/${currentLocale}/careers` },
+        { label: t.footer.news, href: `/${currentLocale}/news` },
+        { label: t.footer.contact_link, href: `/${currentLocale}/contact` },
       ],
     },
     {
       title: t.footer.solutions,
       links: [
-        { label: t.footer.mobile_recharge, href: "#solutions" },
-        { label: t.footer.sim_activation, href: "#solutions" },
-        { label: t.footer.enterprise_link, href: "#enterprise" },
-        { label: t.footer.internet, href: "#solutions" },
-        { label: t.footer.support, href: "#support" },
+        { label: t.footer.mobile_recharge, href: `/${currentLocale}/solutions` },
+        { label: t.footer.sim_activation, href: `/${currentLocale}/solutions` },
+        { label: t.footer.enterprise_link, href: `/${currentLocale}#enterprise` },
+        { label: t.footer.internet, href: `/${currentLocale}/solutions` },
+        { label: t.footer.support, href: `/${currentLocale}#support` },
       ],
     },
     {
       title: t.footer.resources,
       links: [
-        { label: t.footer.faq, href: "#support" },
-        { label: t.footer.documentation, href: "#" },
-        { label: t.footer.privacy_policy, href: "#" },
-        { label: t.footer.terms, href: "#" },
+        { label: t.footer.faq, href: `/${currentLocale}#support` },
+        { label: t.footer.documentation, href: `/${currentLocale}/quote` },
+        { label: t.footer.privacy_policy, href: `/${currentLocale}/about` },
+        { label: t.footer.terms, href: `/${currentLocale}/about` },
       ],
     },
   ];
@@ -106,7 +109,7 @@ export default function Footer() {
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="mb-4 text-sm font-bold text-white" style={{ fontFamily: "var(--font-manrope)" }}>
+              <h4 className="mb-4 text-sm font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
@@ -126,14 +129,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-4 text-sm font-bold text-white" style={{ fontFamily: "var(--font-manrope)" }}>
+            <h4 className="mb-4 text-sm font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
               {t.footer.contact}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
                 <Phone size={15} className="mt-0.5 shrink-0 text-gray-500" />
                 <div>
-                  <div className="text-sm text-gray-300">0550 123 456</div>
+                  <div className="text-sm text-gray-300" dir="ltr">0550 123 456</div>
                   <div className="text-xs text-gray-500">{t.footer.phone_hours}</div>
                 </div>
               </li>

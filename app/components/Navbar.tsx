@@ -67,69 +67,9 @@ export default function Navbar() {
         },
       ],
     },
-    {
-      label: t.nav.products,
-      href: "#products",
-      children: [
-        {
-          icon: <CardSim size={20} />,
-          title: t.nav.products_sub.sim_cards,
-          description: t.nav.products_sub.sim_cards_desc,
-          href: "#products",
-        },
-        {
-          icon: <CreditCard size={20} />,
-          title: t.nav.products_sub.recharge,
-          description: t.nav.products_sub.recharge_desc,
-          href: "#products",
-        },
-        {
-          icon: <Router size={20} />,
-          title: t.nav.products_sub.routers,
-          description: t.nav.products_sub.routers_desc,
-          href: "#products",
-        },
-        {
-          icon: <Radio size={20} />,
-          title: t.nav.products_sub.plans,
-          description: t.nav.products_sub.plans_desc,
-          href: "#products",
-        },
-      ],
-    },
-    {
-      label: t.nav.enterprise,
-      href: "#enterprise",
-      children: [
-        {
-          icon: <Building2 size={20} />,
-          title: t.nav.enterprise_sub.business,
-          description: t.nav.enterprise_sub.business_desc,
-          href: "#enterprise",
-        },
-        {
-          icon: <Zap size={20} />,
-          title: t.nav.enterprise_sub.dedicated,
-          description: t.nav.enterprise_sub.dedicated_desc,
-          href: "#enterprise",
-        },
-        {
-          icon: <Shield size={20} />,
-          title: t.nav.enterprise_sub.security,
-          description: t.nav.enterprise_sub.security_desc,
-          href: "#enterprise",
-        },
-        {
-          icon: <BarChart3 size={20} />,
-          title: t.nav.enterprise_sub.digital,
-          description: t.nav.enterprise_sub.digital_desc,
-          href: "#enterprise",
-        },
-      ],
-    },
-    { label: t.nav.support, href: "#support" },
-    { label: t.nav.news, href: "#news" },
-    { label: t.nav.contact, href: "#contact" },
+    { label: t.nav.products, href: `/${currentLocale}/products` },
+    { label: t.nav.news, href: `/${currentLocale}/news` },
+    { label: t.nav.contact, href: `/${currentLocale}/contact` },
   ];
 
   useEffect(() => {
@@ -195,7 +135,7 @@ export default function Navbar() {
 
                 {/* Mega Menu */}
                 {item.children && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3">
+                  <div className="mega-menu absolute top-full left-0 rtl:left-auto rtl:right-0 pt-3">
                     <div className="w-[520px] rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
                       <div className="grid grid-cols-2 gap-2">
                         {item.children.map((child) => (
@@ -236,7 +176,7 @@ export default function Navbar() {
                 <ChevronDown size={12} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
               </button>
               {langOpen && (
-                <div className="absolute top-full right-0 mt-2 w-28 rounded-xl border border-gray-100 bg-white py-1 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+                <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 mt-2 w-28 rounded-xl border border-gray-100 bg-white py-1 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
                   {languages.map((l) => (
                     <button
                       key={l}
@@ -261,8 +201,8 @@ export default function Navbar() {
               className="hidden xl:flex items-center gap-2 text-gray-600 transition-colors hover:text-red-primary"
             >
               <Phone size={15} />
-              <div className="text-right">
-                <div className="text-[12px] font-semibold leading-tight">0550 123 456</div>
+              <div className="text-start">
+                <div className="text-[12px] font-semibold leading-tight" dir="ltr">0550 123 456</div>
                 <div className="text-[9px] text-gray-400">{t.nav.phone_hours}</div>
               </div>
             </a>
@@ -292,7 +232,7 @@ export default function Navbar() {
           }`}
         >
           <div className="flex h-[76px] items-center justify-between border-b border-gray-100 px-6">
-            <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "var(--font-manrope)" }}>
+            <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
               {t.nav.menu}
             </span>
             <button
@@ -359,7 +299,7 @@ export default function Navbar() {
               >
                 <Phone size={16} />
                 <div>
-                  <div className="text-[12px] font-semibold">0550 123 456</div>
+                  <div className="text-[12px] font-semibold" dir="ltr">0550 123 456</div>
                   <div className="text-[10px] text-gray-400">{t.nav.phone_hours}</div>
                 </div>
               </a>

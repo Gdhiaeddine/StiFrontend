@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ArrowRight, ShieldCheck, Users, Globe, Award } from "lucide-react";
 import { useScrollReveal } from "../hooks";
 import { useTranslations } from "../[locale]/use-translations";
@@ -8,6 +9,8 @@ import { useTranslations } from "../[locale]/use-translations";
 export default function Partnership() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
 
   const features = [
     { icon: <ShieldCheck size={20} />, text: t.partnership.certification },
@@ -48,7 +51,7 @@ export default function Partnership() {
 
             {/* Middle — Heading & Description */}
             <div className="flex flex-col justify-center border-l-0 border-t lg:border-t-0 lg:border-l border-gray-100 p-8 sm:p-10 lg:max-w-[480px]">
-              <h2 className="mb-4 text-2xl font-extrabold text-gray-900 lg:text-3xl" style={{ fontFamily: "var(--font-manrope)" }}>
+              <h2 className="mb-4 text-2xl font-extrabold text-gray-900 lg:text-3xl" style={{ fontFamily: "var(--font-display)" }}>
                 {t.partnership.title}
               </h2>
               <p className="text-base leading-relaxed text-gray-500">
@@ -70,11 +73,11 @@ export default function Partnership() {
               </div>
 
               <a
-                href="#solutions"
+                href={`/${currentLocale}/about`}
                 className="group inline-flex w-fit items-center gap-2 rounded-full bg-red-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-250 hover:shadow-lg hover:shadow-red-primary/25 hover:scale-[1.03]"
               >
                 {t.partnership.cta}
-                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
               </a>
             </div>
           </div>

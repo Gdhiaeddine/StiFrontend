@@ -3,17 +3,12 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Image from "next/image";
-
-const expertise = [
-  "Ooredoo Mobile Recharge Credit Distribution",
-  "Official Ooredoo Prepaid SIM Card Distribution",
-  "Wholesale Mobile Credit Solutions",
-  "Retailer & Reseller Supply Network",
-  "Nationwide Telecom Product Distribution",
-  "Reliable Logistics & Partner Support",
-];
+import { useTranslations } from "../../[locale]/use-translations";
 
 export default function Expertise() {
+  const t = useTranslations();
+  const expT = t.aboutPage.expertise;
+
   return (
     <section className="py-28 lg:py-36 bg-gray-50">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
@@ -27,7 +22,7 @@ export default function Expertise() {
               transition={{ duration: 0.5 }}
               className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary"
             >
-              Our Expertise
+              {expT.badge}
             </motion.span>
 
             <motion.h2
@@ -36,9 +31,9 @@ export default function Expertise() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-6 text-3xl font-extrabold text-gray-900 lg:text-4xl"
-              style={{ fontFamily: "var(--font-manrope)" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              Trusted Expertise in Ooredoo Mobile Recharge & SIM Card Distribution
+              {expT.title}
             </motion.h2>
 
             <motion.p
@@ -48,7 +43,7 @@ export default function Expertise() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8 text-gray-500 leading-relaxed"
             >
-              With years of experience in the Algerian telecom distribution sector, STI specializes in the distribution of official Ooredoo mobile recharge credit and prepaid SIM cards. We work closely with retailers, wholesalers, and business partners to ensure reliable product availability, fast delivery, and exceptional service throughout Algeria.
+              {expT.description}
             </motion.p>
 
             <motion.ul
@@ -58,7 +53,7 @@ export default function Expertise() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-3"
             >
-              {expertise.map((item) => (
+              {expT.items.map((item: string) => (
                 <li key={item} className="flex items-center gap-3">
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-primary/10 text-red-primary">
                     <Check size={14} />

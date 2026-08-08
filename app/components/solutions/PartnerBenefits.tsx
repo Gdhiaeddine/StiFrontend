@@ -2,38 +2,15 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp, ShieldCheck, Rocket, Package, Users, Handshake } from "lucide-react";
+import { useTranslations } from "../../[locale]/use-translations";
 
-const benefits = [
-  {
-    icon: <TrendingUp size={24} />,
-    title: "Competitive Wholesale Pricing",
-    description: "Maximize your margins with attractive bulk pricing tiers tailored for retailers, wholesalers, and sales partners.",
-  },
-  {
-    icon: <ShieldCheck size={24} />,
-    title: "Official Ooredoo Products",
-    description: "Access 100% genuine mobile recharge credit and official prepaid SIM cards directly from Ooredoo Algeria.",
-  },
-  {
-    icon: <Rocket size={24} />,
-    title: "Accelerated Business Growth",
-    description: "Expand your retail network and revenue streams with high-demand telecom products and dedicated support.",
-  },
-  {
-    icon: <Package size={24} />,
-    title: "Guaranteed Stock Availability",
-    description: "Continuous inventory supply of SIM cards and mobile credit to ensure your business never runs out of stock.",
-  },
-  {
-    icon: <Users size={24} />,
-    title: "Dedicated Partner Support",
-    description: "Responsive account management and priority customer service to assist with your orders and inquiries.",
-  },
-  {
-    icon: <Handshake size={24} />,
-    title: "Long-Term Strategic Partnership",
-    description: "Build a transparent, sustainable business relationship backed by trust and operational excellence.",
-  },
+const benefitIcons = [
+  <TrendingUp key="1" size={24} />,
+  <ShieldCheck key="2" size={24} />,
+  <Rocket key="3" size={24} />,
+  <Package key="4" size={24} />,
+  <Users key="5" size={24} />,
+  <Handshake key="6" size={24} />,
 ];
 
 const container = {
@@ -47,6 +24,14 @@ const item = {
 };
 
 export default function PartnerBenefits() {
+  const t = useTranslations();
+  const benT = t.solutionsPage?.benefits || {
+    badge: "Why Partner With Us",
+    title: "Partner Benefits",
+    subtitle: "Everything you need to scale your distribution network and grow your telecom business across Algeria.",
+    items: [],
+  };
+
   return (
     <section className="py-28 lg:py-36 bg-gray-900 relative overflow-hidden">
       {/* Background pattern */}
@@ -71,16 +56,16 @@ export default function PartnerBenefits() {
           className="mb-16 text-center"
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-accent">
-            Why Partner With Us
+            {benT.badge}
           </span>
           <h2
             className="mb-4 text-3xl font-extrabold text-white lg:text-4xl"
-            style={{ fontFamily: "var(--font-manrope)" }}
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            Partner Benefits
+            {benT.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-400">
-            Everything you need to scale your distribution network and grow your telecom business across Algeria.
+            {benT.subtitle}
           </p>
         </motion.div>
 
@@ -91,7 +76,7 @@ export default function PartnerBenefits() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {benefits.map((b) => (
+          {benT.items.map((b, idx) => (
             <motion.div
               key={b.title}
               variants={item}
@@ -102,11 +87,11 @@ export default function PartnerBenefits() {
               <div className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-red-primary to-red-accent transition-all duration-500 group-hover:w-full" />
 
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-primary/15 text-red-primary transition-all duration-300 group-hover:bg-red-primary group-hover:text-white group-hover:scale-110">
-                {b.icon}
+                {benefitIcons[idx % benefitIcons.length]}
               </div>
               <h3
                 className="mb-3 text-lg font-bold text-white"
-                style={{ fontFamily: "var(--font-manrope)" }}
+                style={{ fontFamily: "var(--font-display)" }}
               >
                 {b.title}
               </h3>

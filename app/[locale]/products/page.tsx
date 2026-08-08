@@ -1,0 +1,170 @@
+import type { Metadata } from "next";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import ProductsHero from "../../components/products/ProductsHero";
+import ProductCategories from "../../components/products/ProductCategories";
+import FeaturedProductsGrid from "../../components/products/FeaturedProductsGrid";
+import BenefitsSection from "../../components/products/BenefitsSection";
+import OrderingTimeline from "../../components/products/OrderingTimeline";
+import ProductsFAQ from "../../components/products/ProductsFAQ";
+import FinalCTA from "../../components/FinalCTA";
+
+export const metadata: Metadata = {
+  title: "Official Ooredoo Products | STI Algeria",
+  description:
+    "Browse official Ooredoo mobile recharge credit, prepaid SIM cards, and wholesale telecom products from SARL Smart Technologie Innovation (STI), an official Ooredoo distributor serving retailers and business partners across Algeria.",
+  keywords: [
+    "Ooredoo Products Algeria",
+    "Official Ooredoo Distributor",
+    "Mobile Recharge Credit",
+    "Prepaid SIM Cards",
+    "Wholesale Recharge",
+    "Telecom Distribution Algeria",
+    "Retail Partner Ooredoo",
+    "STI Algeria",
+    "Wholesale SIM Cards",
+    "Official Telecom Products",
+  ],
+  openGraph: {
+    title: "Official Ooredoo Products | STI Algeria",
+    description:
+      "Browse official Ooredoo mobile recharge credit, prepaid SIM cards, and wholesale telecom products from STI Algeria.",
+    images: ["/assets/hero.png"],
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "SARL Smart Technologie Innovation",
+  alternateName: "STI",
+  url: "https://sti-dz.com",
+  logo: "https://sti-dz.com/logo.png",
+  description:
+    "Official Ooredoo distributor specializing in mobile recharge credit and prepaid SIM card distribution across Algeria.",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "DZ",
+  },
+  sameAs: [],
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Official Ooredoo Products",
+  description:
+    "Complete range of genuine Ooredoo mobile recharge credit and prepaid SIM cards.",
+  numberOfItems: 8,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Product",
+        name: "Ooredoo Recharge 200 DA",
+        description: "Official mobile recharge credit for prepaid subscribers.",
+        brand: {
+          "@type": "Brand",
+          name: "Ooredoo",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "200",
+          priceCurrency: "DZD",
+          availability: "https://schema.org/InStock",
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Product",
+        name: "Ooredoo Recharge 500 DA",
+        description: "Official mobile recharge credit for prepaid subscribers.",
+        brand: {
+          "@type": "Brand",
+          name: "Ooredoo",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "500",
+          priceCurrency: "DZD",
+          availability: "https://schema.org/InStock",
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Product",
+        name: "Ooredoo Recharge 1000 DA",
+        description: "Official mobile recharge credit for prepaid subscribers.",
+        brand: {
+          "@type": "Brand",
+          name: "Ooredoo",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "1000",
+          priceCurrency: "DZD",
+          availability: "https://schema.org/InStock",
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "Product",
+        name: "Ooredoo Prepaid SIM",
+        description: "Official prepaid SIM card ready for activation and resale.",
+        brand: {
+          "@type": "Brand",
+          name: "Ooredoo",
+        },
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+        },
+      },
+    },
+  ],
+};
+
+export default function ProductsPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
+      />
+      <Navbar />
+      <main>
+        <ProductsHero />
+        <ProductCategories />
+        <FeaturedProductsGrid />
+        <BenefitsSection />
+        <OrderingTimeline />
+        <ProductsFAQ />
+        <FinalCTA />
+      </main>
+      <Footer />
+    </>
+  );
+}

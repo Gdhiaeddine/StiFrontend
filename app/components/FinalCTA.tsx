@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "../hooks";
 import { useTranslations } from "../[locale]/use-translations";
@@ -7,6 +8,8 @@ import { useTranslations } from "../[locale]/use-translations";
 export default function FinalCTA() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
 
   return (
     <section id="contact" className="py-28 lg:py-36 bg-red-primary relative overflow-hidden">
@@ -25,7 +28,7 @@ export default function FinalCTA() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="mb-6 text-3xl font-extrabold text-white md:text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-6 text-3xl font-extrabold text-white md:text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.finalCta.title_line1}
             <br />
             {t.finalCta.title_line2}
@@ -35,14 +38,14 @@ export default function FinalCTA() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#contact"
+              href={`/${currentLocale}/contact`}
               className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-red-primary transition-all duration-250 hover:shadow-xl hover:scale-[1.03]"
             >
               {t.finalCta.cta_primary}
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
             </a>
             <a
-              href="#contact"
+              href={`/${currentLocale}/quote`}
               className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-250 hover:bg-white/20 hover:scale-[1.03]"
             >
               {t.finalCta.cta_secondary}

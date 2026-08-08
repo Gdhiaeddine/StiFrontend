@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { useTranslations } from "../../[locale]/use-translations";
 
 const testimonials = [
   {
@@ -38,6 +39,13 @@ const item = {
 };
 
 export default function Testimonials() {
+  const t = useTranslations();
+  const testT = t.aboutPage?.testimonials || {
+    badge: "Testimonials",
+    title: "What Our Clients Say",
+    subtitle: "Trusted by leading businesses across Algeria",
+  };
+
   return (
     <section className="py-28 lg:py-36 bg-gray-50">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
@@ -49,13 +57,13 @@ export default function Testimonials() {
           className="mb-16 text-center"
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            Testimonials
+            {testT.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            What Our Clients Say
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+            {testT.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            Trusted by leading businesses across Algeria
+            {testT.subtitle}
           </p>
         </motion.div>
 
@@ -66,9 +74,9 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid gap-6 md:grid-cols-3"
         >
-          {testimonials.map((t) => (
+          {testimonials.map((tItem) => (
             <motion.article
-              key={t.name}
+              key={tItem.name}
               variants={item}
               className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white/80 p-8 shadow-[0_2px_16px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-500 hover:shadow-[0_12px_48px_rgba(0,0,0,0.06)] hover:-translate-y-1"
             >
@@ -79,15 +87,15 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="mb-6 text-sm leading-relaxed text-gray-600">
-                &ldquo;{t.review}&rdquo;
+                &ldquo;{tItem.review}&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${t.color} text-xs font-bold text-white`}>
-                  {t.initials}
+                <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${tItem.color} text-xs font-bold text-white`}>
+                  {tItem.initials}
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-900">{t.name}</div>
-                  <div className="text-xs text-gray-500">{t.role}</div>
+                  <div className="text-sm font-semibold text-gray-900">{tItem.name}</div>
+                  <div className="text-xs text-gray-500">{tItem.role}</div>
                 </div>
               </div>
             </motion.article>

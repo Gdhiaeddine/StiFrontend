@@ -19,7 +19,7 @@ function StatCard({ icon, title, label }: { icon: React.ReactNode; title: string
       <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-primary/8 text-red-primary transition-colors group-hover:bg-red-primary group-hover:text-white">
         {icon}
       </div>
-      <div className="mb-2 text-lg font-extrabold text-gray-900 text-center" style={{ fontFamily: "var(--font-manrope)" }}>
+      <div className="mb-2 text-lg font-extrabold text-gray-900 text-center" style={{ fontFamily: "var(--font-display)" }}>
         {title}
       </div>
       <div className="text-sm text-gray-500 text-center leading-relaxed">{label}</div>
@@ -40,7 +40,7 @@ export default function Statistics() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.statistics.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">

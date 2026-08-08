@@ -1,10 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "../hooks";
 import { useTranslations } from "../[locale]/use-translations";
 
-function ProductCard({ image, title, description, index, ctaText }: { image: string; title: string; description: string; index: number; ctaText: string }) {
+function ProductCard({ image, title, description, index, ctaText, currentLocale }: { image: string; title: string; description: string; index: number; ctaText: string; currentLocale: string }) {
   const { ref, visible } = useScrollReveal(0.2);
 
   return (
@@ -24,18 +25,18 @@ function ProductCard({ image, title, description, index, ctaText }: { image: str
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="mb-2 text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-manrope)" }}>
+        <h3 className="mb-2 text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
           {title}
         </h3>
         <p className="mb-5 text-sm leading-relaxed text-gray-500">
           {description}
         </p>
         <a
-          href="#contact"
+          href={`/${currentLocale}/quote`}
           className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-red-primary transition-colors hover:text-red-accent"
         >
           {ctaText}
-          <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
         </a>
       </div>
     </article>
@@ -45,6 +46,8 @@ function ProductCard({ image, title, description, index, ctaText }: { image: str
 export default function Products() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
 
   return (
     <section id="products" className="py-28 lg:py-36 bg-gray-50">
@@ -58,7 +61,7 @@ export default function Products() {
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
             {t.products.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.products.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
@@ -67,7 +70,7 @@ export default function Products() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {t.products.items.map((p, i) => (
-            <ProductCard key={p.title} image="/assets/hero.png" title={p.title} description={p.description} index={i} ctaText={t.products.cta} />
+            <ProductCard key={p.title} image="/assets/hero.png" title={p.title} description={p.description} index={i} ctaText={t.products.cta} currentLocale={currentLocale} />
           ))}
         </div>
       </div>

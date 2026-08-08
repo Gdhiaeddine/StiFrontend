@@ -1,10 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "../hooks";
 import { useTranslations } from "../[locale]/use-translations";
 
-function ArticleCard({ image, category, title, excerpt, date, index, ctaText }: { image: string; category: string; title: string; excerpt: string; date: string; index: number; ctaText: string }) {
+function ArticleCard({ image, category, title, excerpt, date, index, ctaText, currentLocale }: { image: string; category: string; title: string; excerpt: string; date: string; index: number; ctaText: string; currentLocale: string }) {
   const { ref, visible } = useScrollReveal(0.2);
 
   return (
@@ -27,18 +28,18 @@ function ArticleCard({ image, category, title, excerpt, date, index, ctaText }: 
       </div>
       <div className="p-6">
         <div className="mb-3 text-xs text-gray-400">{date}</div>
-        <h3 className="mb-3 text-lg font-bold text-gray-900 line-clamp-2" style={{ fontFamily: "var(--font-manrope)" }}>
+        <h3 className="mb-3 text-lg font-bold text-gray-900 line-clamp-2" style={{ fontFamily: "var(--font-display)" }}>
           {title}
         </h3>
         <p className="mb-5 text-sm leading-relaxed text-gray-500 line-clamp-2">
           {excerpt}
         </p>
         <a
-          href="#news"
+          href={`/${currentLocale}/about`}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-red-primary transition-colors hover:text-red-accent"
         >
           {ctaText}
-          <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
         </a>
       </div>
     </article>
@@ -48,6 +49,8 @@ function ArticleCard({ image, category, title, excerpt, date, index, ctaText }: 
 export default function LatestNews() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
 
   return (
     <section id="news" className="py-28 lg:py-36 bg-white">
@@ -61,7 +64,7 @@ export default function LatestNews() {
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
             {t.latestNews.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.latestNews.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
@@ -70,7 +73,7 @@ export default function LatestNews() {
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {t.latestNews.items.map((a, i) => (
-            <ArticleCard key={a.title} image="/assets/hero.png" {...a} index={i} ctaText={t.latestNews.cta} />
+            <ArticleCard key={a.title} image="/assets/hero.png" {...a} index={i} ctaText={t.latestNews.cta} currentLocale={currentLocale} />
           ))}
         </div>
       </div>

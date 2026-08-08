@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
 import { useScrollReveal } from "../hooks";
 import { useTranslations } from "../[locale]/use-translations";
@@ -7,6 +8,8 @@ import { useTranslations } from "../[locale]/use-translations";
 export default function Enterprise() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] || "en";
 
   return (
     <section id="enterprise" className="py-28 lg:py-36 bg-white">
@@ -33,7 +36,7 @@ export default function Enterprise() {
                     <path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-extrabold text-white" style={{ fontFamily: "var(--font-manrope)" }}>
+                <h3 className="text-2xl font-extrabold text-white" style={{ fontFamily: "var(--font-display)" }}>
                   {t.enterprise.title}
                 </h3>
                 <p className="mt-2 text-sm text-gray-400">{t.enterprise.subtitle}</p>
@@ -45,7 +48,7 @@ export default function Enterprise() {
               <span className="mb-3 text-xs font-bold uppercase tracking-widest text-red-primary">
                 {t.enterprise.badge}
               </span>
-              <h2 className="mb-6 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+              <h2 className="mb-6 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
                 {t.enterprise.title}
               </h2>
 
@@ -61,11 +64,11 @@ export default function Enterprise() {
               </div>
 
               <a
-                href="#contact"
+                href={`/${currentLocale}/quote`}
                 className="group inline-flex w-fit items-center gap-2 rounded-full bg-red-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-250 hover:shadow-lg hover:shadow-red-primary/25 hover:scale-[1.03]"
               >
                 {t.enterprise.cta}
-                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
               </a>
             </div>
           </div>

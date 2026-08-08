@@ -58,7 +58,7 @@ export default function Testimonials() {
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
             {t.testimonials.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
             {t.testimonials.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">

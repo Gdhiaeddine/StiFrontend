@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Manrope, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "../globals.css";
 import Providers from "./providers";
 
@@ -12,6 +12,13 @@ const inter = Inter({
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-ibm-plex-arabic",
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -56,7 +63,7 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
   
   return (
-    <html lang={locale} dir={dir} className={`${inter.variable} ${manrope.variable}`}>
+    <html lang={locale} dir={dir} className={`${inter.variable} ${manrope.variable} ${ibmPlexSansArabic.variable}`}>
       <body className="min-h-screen">
         <Providers locale={locale}>{children}</Providers>
       </body>

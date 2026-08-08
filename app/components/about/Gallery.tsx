@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useTranslations } from "../../[locale]/use-translations";
 
 const images = [
-  { src: "/assets/hero.png", alt: "STI modern office space", span: "col-span-1 row-span-2" },
+  { src: "/assets/hero.png", alt: "STI office space", span: "col-span-1 row-span-2" },
   { src: "/assets/logo.png", alt: "STI team meeting", span: "col-span-1 row-span-1" },
   { src: "/assets/hero.png", alt: "Technical support center", span: "col-span-1 row-span-1" },
   { src: "/assets/logo.png", alt: "Product warehouse", span: "col-span-1 row-span-2" },
@@ -15,6 +16,8 @@ const images = [
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const t = useTranslations();
+  const galT = t.aboutPage.gallery;
 
   return (
     <section className="py-28 lg:py-36 bg-white">
@@ -27,13 +30,13 @@ export default function Gallery() {
           className="mb-16 text-center"
         >
           <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-red-primary">
-            Gallery
+            {galT.badge}
           </span>
-          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-manrope)" }}>
-            Inside STI
+          <h2 className="mb-4 text-3xl font-extrabold text-gray-900 lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+            {galT.title}
           </h2>
           <p className="mx-auto max-w-xl text-gray-500">
-            A glimpse into our offices, team, and operations
+            {galT.subtitle}
           </p>
         </motion.div>
 
@@ -72,7 +75,7 @@ export default function Gallery() {
           >
             <button
               aria-label="Close lightbox"
-              className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute right-6 top-6 rtl:right-auto rtl:left-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
             >
               <X size={20} />
             </button>
