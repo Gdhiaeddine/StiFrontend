@@ -43,24 +43,20 @@ function StepCard({ num, icon, title, description, index }: { num: string; icon:
 export default function OrderingTimeline() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
-  const ordT = t.productsPage?.ordering || {
-    badge: "How To Order",
-    title: "Simple Ordering Process",
-    subtitle: "Four easy steps to start ordering official Ooredoo products for your business.",
-    steps: [
-      { num: "01", title: "Choose Products", description: "Browse available Ooredoo product categories." },
-      { num: "02", title: "Request Quote", description: "Submit your request with desired quantities." },
-      { num: "03", title: "Order Confirmation", description: "Our team verifies and prepares your quote." },
-      { num: "04", title: "Receive Products", description: "Receive products with rapid delivery." },
-    ],
-  };
-
-  const stepsList = ordT.steps || [
+  const defaultSteps = [
     { num: "01", title: "Choose Products", description: "Browse available Ooredoo product categories." },
     { num: "02", title: "Request Quote", description: "Submit your request with desired quantities." },
     { num: "03", title: "Order Confirmation", description: "Our team verifies and prepares your quote." },
     { num: "04", title: "Receive Products", description: "Receive products with rapid delivery." },
   ];
+
+  const ordT = t.productsPage?.ordering || {
+    badge: "How To Order",
+    title: "Simple Ordering Process",
+    subtitle: "Four easy steps to start ordering official Ooredoo products for your business.",
+  };
+
+  const stepsList = defaultSteps;
 
   return (
     <section className="py-28 lg:py-36 bg-white">

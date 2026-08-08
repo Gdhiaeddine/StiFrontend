@@ -37,21 +37,7 @@ const cardVariants = {
 
 export default function BenefitsSection() {
   const t = useTranslations();
-  const benT = t.productsPage?.benefits || {
-    badge: "Why Choose STI",
-    title: "Product Distribution Advantages",
-    subtitle: "Unmatched reliability, stock availability, and wholesale pricing for Algerian businesses.",
-    items: [
-      { title: "Official Ooredoo Products", description: "100% genuine products directly from Ooredoo Algeria." },
-      { title: "Competitive Wholesale Pricing", description: "Designed to maximize margins for business growth." },
-      { title: "Reliable Stock Availability", description: "Continuous inventory supply without interruptions." },
-      { title: "Fast Order Processing", description: "Efficient fulfillment and rapid dispatch." },
-      { title: "Nationwide Distribution Support", description: "Serving partners across all 58 Algerian provinces." },
-      { title: "Dedicated Business Support", description: "Professional account management and assistance." },
-    ],
-  };
-
-  const benefitsList = benT.items || [
+  const defaultBenefits = [
     { title: "Official Ooredoo Products", description: "100% genuine products directly from Ooredoo Algeria." },
     { title: "Competitive Wholesale Pricing", description: "Designed to maximize margins for business growth." },
     { title: "Reliable Stock Availability", description: "Continuous inventory supply without interruptions." },
@@ -59,6 +45,14 @@ export default function BenefitsSection() {
     { title: "Nationwide Distribution Support", description: "Serving partners across all 58 Algerian provinces." },
     { title: "Dedicated Business Support", description: "Professional account management and assistance." },
   ];
+
+  const benT = t.productsPage?.benefits || {
+    badge: "Why Choose STI",
+    title: "Product Distribution Advantages",
+    subtitle: "Unmatched reliability, stock availability, and wholesale pricing for Algerian businesses.",
+  };
+
+  const benefitsList = defaultBenefits;
 
   return (
     <section className="py-28 lg:py-36 bg-gray-50">

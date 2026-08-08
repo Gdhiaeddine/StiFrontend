@@ -19,6 +19,11 @@ function getLocale(request: NextRequest): string {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Skip dashboard routes and API routes
+  if (pathname.startsWith("/dashboard") || pathname.startsWith("/api")) {
+    return;
+  }
   
   // Check if there is any supported locale in the pathname
   const pathnameHasLocale = locales.some(
@@ -35,7 +40,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths, static files, and assets
-    "/((?!_next/static|_next/image|assets|favicon.ico|site.webmanifest).*)",
+    // Skip all internal paths, static files, dashboard, api, and assets
+    "/((?!_next/static|_next/image|assets|dashboard|api|favicon.ico|site.webmanifest).*)",
   ],
 };

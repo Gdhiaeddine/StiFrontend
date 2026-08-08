@@ -190,22 +190,27 @@ body {
 :lang(ar),
 [lang="ar"],
 [dir="rtl"],
-html[lang="ar"] body,
-html[dir="rtl"] body {
-  --font-sans: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif;
-  font-family: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
-}
-
-:lang(ar) *,
-[lang="ar"] *,
-[dir="rtl"] * {
-  font-family: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
-}
-
-[dir="rtl"] {
+html[lang="ar"],
+html[dir="rtl"] {
   direction: rtl;
   text-align: right;
+  --font-sans: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
+  --font-display: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
+  --font-manrope: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
+  --font-inter: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
+}
+
+html[dir="rtl"] body,
+html[lang="ar"] body,
+[dir="rtl"] body {
+  font-family: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
+}
+
+html[dir="rtl"] *,
+html[lang="ar"] *,
+[dir="rtl"] *,
+:lang(ar) * {
+  font-family: var(--font-ibm-plex-arabic), system-ui, -apple-system, sans-serif !important;
 }
 
 [dir="rtl"] .nav-link::after {

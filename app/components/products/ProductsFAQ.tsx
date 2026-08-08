@@ -46,26 +46,21 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 export default function ProductsFAQ() {
   const { ref, visible } = useScrollReveal();
   const t = useTranslations();
-  const faqT = t.productsPage?.faq || {
-    badge: "Support",
-    title: "Frequently Asked Questions",
-    subtitle: "Everything you need to know about purchasing Ooredoo products from STI.",
-    items: [
-      { question: "Which recharge denominations are available?", answer: "We offer a complete range of Ooredoo recharge denominations including 200 DA, 500 DA, 1,000 DA, 2,000 DA, 5,000 DA, and 10,000 DA. All denominations are available for wholesale purchase." },
-      { question: "Are all products official Ooredoo products?", answer: "Yes, all products we distribute are 100% genuine official Ooredoo products. As an authorized Ooredoo distributor, we guarantee the authenticity of every product." },
-      { question: "Can I buy products in bulk?", answer: "Absolutely! We specialize in wholesale distribution. Bulk purchasing options are available for all our products with competitive pricing for retailers, wholesalers, and business partners." },
-      { question: "How do I become a reseller?", answer: "To become an authorized reseller, please contact our sales team or fill out the quote request form. Our team will review your application and provide partnership details." },
-      { question: "How quickly are orders processed?", answer: "Orders are typically processed within 24-48 business hours after confirmation. Delivery times may vary depending on your location within Algeria." },
-    ],
-  };
-
-  const faqItems = faqT.items || [
+  const defaultFaqItems = [
     { question: "Which recharge denominations are available?", answer: "We offer a complete range of Ooredoo recharge denominations including 200 DA, 500 DA, 1,000 DA, 2,000 DA, 5,000 DA, and 10,000 DA. All denominations are available for wholesale purchase." },
     { question: "Are all products official Ooredoo products?", answer: "Yes, all products we distribute are 100% genuine official Ooredoo products. As an authorized Ooredoo distributor, we guarantee the authenticity of every product." },
     { question: "Can I buy products in bulk?", answer: "Absolutely! We specialize in wholesale distribution. Bulk purchasing options are available for all our products with competitive pricing for retailers, wholesalers, and business partners." },
     { question: "How do I become a reseller?", answer: "To become an authorized reseller, please contact our sales team or fill out the quote request form. Our team will review your application and provide partnership details." },
     { question: "How quickly are orders processed?", answer: "Orders are typically processed within 24-48 business hours after confirmation. Delivery times may vary depending on your location within Algeria." },
   ];
+
+  const faqT = t.productsPage?.faq || {
+    badge: "Support",
+    title: "Frequently Asked Questions",
+    subtitle: "Everything you need to know about purchasing Ooredoo products from STI.",
+  };
+
+  const faqItems = defaultFaqItems;
 
   return (
     <section className="py-28 lg:py-36 bg-gray-50">
