@@ -15,7 +15,7 @@ import {
   Mail,
   Clock,
   Plus,
-  Eye,
+  TrendingUp,
 } from "lucide-react";
 import {
   LineChart,
@@ -31,55 +31,43 @@ const kpis = [
   {
     title: "Solutions",
     value: "12",
-    description: "Total Solutions",
+    description: "Active Enterprise Solutions",
     icon: Layers,
-    color: "text-[#D71920]",
-    bg: "bg-red-50",
     href: "/dashboard/solutions",
   },
   {
     title: "Products",
     value: "28",
-    description: "Total Products",
+    description: "Catalog & SIM Products",
     icon: Package,
-    color: "text-green-600",
-    bg: "bg-green-50",
     href: "/dashboard/products",
   },
   {
     title: "Job Offers",
     value: "8",
-    description: "Active Job Offers",
+    description: "Open Career Positions",
     icon: Briefcase,
-    color: "text-blue-600",
-    bg: "bg-blue-50",
     href: "/dashboard/jobs",
   },
   {
-    title: "Applications (CVs)",
+    title: "Applications",
     value: "36",
-    description: "Total Applications",
+    description: "Received Candidate CVs",
     icon: FileUser,
-    color: "text-purple-600",
-    bg: "bg-purple-50",
     href: "/dashboard/applications",
   },
   {
     title: "Messages",
     value: "15",
-    description: "Unread Messages",
+    description: "Unread Inquiries",
     icon: MessageSquare,
-    color: "text-orange-600",
-    bg: "bg-orange-50",
     href: "/dashboard/messages",
   },
   {
     title: "Quote Requests",
     value: "9",
-    description: "Pending Requests",
+    description: "Pending Partner Quotes",
     icon: FileText,
-    color: "text-teal-600",
-    bg: "bg-teal-50",
     href: "/dashboard/quotes",
   },
 ];
@@ -96,162 +84,187 @@ const chartData = [
 
 const contactInfo = [
   { icon: Phone, label: "Phone", value: "+213 XXX XX XX XX" },
-  { icon: Mail, label: "Email", value: "contact@sti-dz.com" },
+  { icon: Mail, label: "Email", value: "contact@sti.dz" },
   { icon: Building2, label: "Address", value: "Sétif, Algeria" },
-  { icon: Clock, label: "Working Hours", value: "Sunday - Thursday, 08:00 AM - 05:00 PM" },
+  { icon: Clock, label: "Working Hours", value: "Sunday - Thursday, 08:30 AM - 05:30 PM" },
 ];
 
 const quickActions = [
-  { label: "Add Solution", description: "Create a new solution", icon: Layers, href: "/dashboard/solutions/create" },
-  { label: "Add Product", description: "Create a new product", icon: Package, href: "/dashboard/products/create" },
-  { label: "Add Job Offer", description: "Post a new job", icon: Briefcase, href: "/dashboard/jobs/create" },
-  { label: "View Applications", description: "Browse received CVs", icon: FileUser, href: "/dashboard/applications" },
-  { label: "View Messages", description: "Check contact messages", icon: MessageSquare, href: "/dashboard/messages" },
-  { label: "View Quotes", description: "Check quote requests", icon: FileText, href: "/dashboard/quotes" },
+  { label: "Add Solution", description: "Create enterprise service solution", icon: Layers, href: "/dashboard/solutions/create" },
+  { label: "Add Product", description: "Add Ooredoo product or SIM", icon: Package, href: "/dashboard/products/create" },
+  { label: "Post Job Offer", description: "Publish open career role", icon: Briefcase, href: "/dashboard/jobs/create" },
+  { label: "View Applications", description: "Review candidate applications", icon: FileUser, href: "/dashboard/applications" },
+  { label: "View Messages", description: "Read client contact messages", icon: MessageSquare, href: "/dashboard/messages" },
+  { label: "View Quotes", description: "Manage wholesale quote requests", icon: FileText, href: "/dashboard/quotes" },
 ];
 
 const recentActivity = [
-  { title: "New application received", subtitle: "Frontend Developer", time: "2 min ago", color: "bg-purple-500" },
-  { title: "New quote request", subtitle: "Website Development", time: "15 min ago", color: "bg-teal-500" },
-  { title: "New message received", subtitle: "From: Business Partner", time: "1 hour ago", color: "bg-orange-500" },
-  { title: "New product added", subtitle: "Ooredoo Prepaid SIM", time: "2 hours ago", color: "bg-green-500" },
+  { title: "New application received", subtitle: "Distribution Coordinator", time: "2 min ago" },
+  { title: "New quote request", subtitle: "Recharge Credit Distribution", time: "15 min ago" },
+  { title: "New message received", subtitle: "Retail Partner Inquiry", time: "1 hour ago" },
+  { title: "New product catalog update", subtitle: "Prepaid SIM Card", time: "2 hours ago" },
 ];
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="space-y-8">
+      {/* Welcome Banner */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-6 lg:p-8 rounded-3xl border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.03)]">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
-            Welcome back, Admin! 👋
+          <span className="text-xs font-bold uppercase tracking-widest text-red-primary mb-1 block">
+            Executive Control Panel
+          </span>
+          <h1 className="text-2xl lg:text-3xl font-extrabold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
+            Welcome back, Admin!
           </h1>
           <p className="text-sm text-gray-500 mt-1">
-            Here&apos;s what&apos;s happening with STI today.
+            Overview of SARL STI Ooredoo Distribution operations & incoming inquiries.
           </p>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-700">
-          <Calendar size={16} className="text-gray-400" />
-          May 24, 2025 - May 30, 2025
+        <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border border-gray-100 bg-gray-50 text-xs font-semibold text-gray-600 shrink-0">
+          <Calendar size={15} className="text-red-primary" />
+          <span>Active Session</span>
         </div>
       </div>
 
-      {/* KPI Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      {/* KPI Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
         {kpis.map((kpi) => (
           <Link
             key={kpi.title}
             href={kpi.href}
-            className="group bg-white rounded-xl border border-gray-200 p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+            className="group relative overflow-hidden bg-white rounded-3xl border border-gray-100 p-6 shadow-[0_2px_16px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,16,46,0.08)] hover:-translate-y-1 flex flex-col justify-between"
           >
-            <div className="flex items-center justify-between mb-3">
-              <div className={`w-10 h-10 ${kpi.bg} rounded-lg flex items-center justify-center`}>
-                <kpi.icon size={20} className={kpi.color} />
-              </div>
+            <div className="absolute left-0 top-0 h-[3px] w-0 bg-red-primary transition-all duration-300 group-hover:w-full" />
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-primary/10 text-red-primary transition-colors group-hover:bg-red-primary group-hover:text-white">
+              <kpi.icon size={20} />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-0.5">{kpi.value}</div>
-            <div className="text-xs text-gray-500 mb-3">{kpi.description}</div>
-            <div className="text-xs font-medium text-[#D71920] group-hover:underline">
-              Manage {kpi.title} →
+            <div>
+              <div className="text-3xl font-extrabold text-gray-900 mb-1" style={{ fontFamily: "var(--font-display)" }}>
+                {kpi.value}
+              </div>
+              <div className="text-xs font-bold text-gray-900 mb-1">{kpi.title}</div>
+              <div className="text-[11px] text-gray-400 leading-tight">{kpi.description}</div>
             </div>
           </Link>
         ))}
       </div>
 
-      {/* Chart + Contact Info */}
-      <div className="grid lg:grid-cols-[1fr_360px] gap-6">
-        {/* Overview Chart */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
+      {/* Chart + Company Info */}
+      <div className="grid lg:grid-cols-[1fr_380px] gap-6">
+        {/* Analytics Overview Chart */}
+        <div className="bg-white rounded-3xl border border-gray-100 p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.03)]">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-base font-semibold text-gray-900">Overview</h2>
-            <select className="text-xs border border-gray-200 rounded-lg px-3 py-1.5 text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#D71920]/20">
-              <option>Last 7 Days</option>
-              <option>Last 30 Days</option>
-              <option>Last 90 Days</option>
-            </select>
+            <div>
+              <h2 className="text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
+                Inquiry & Activity Analytics
+              </h2>
+              <p className="text-xs text-gray-400">Applications, quotes, and contact message trends</p>
+            </div>
+            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-50 text-gray-600 border border-gray-100">
+              Weekly Overview
+            </span>
           </div>
-          <div className="h-[280px]">
+          <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" />
-                <XAxis dataKey="day" tick={{ fontSize: 12, fill: "#9CA3AF" }} />
-                <YAxis tick={{ fontSize: 12, fill: "#9CA3AF" }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" vertical={false} />
+                <XAxis dataKey="day" tick={{ fontSize: 12, fill: "#9CA3AF" }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: "#9CA3AF" }} axisLine={false} tickLine={false} />
                 <Tooltip
                   contentStyle={{
-                    borderRadius: "8px",
-                    border: "1px solid #E5E7EB",
-                    boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
+                    borderRadius: "16px",
+                    border: "1px solid #F3F4F6",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
+                    fontSize: "12px",
                   }}
                 />
-                <Line type="monotone" dataKey="applications" stroke="#8B5CF6" strokeWidth={2} dot={false} name="Applications" />
-                <Line type="monotone" dataKey="quotes" stroke="#14B8A6" strokeWidth={2} dot={false} name="Quote Requests" />
-                <Line type="monotone" dataKey="messages" stroke="#F97316" strokeWidth={2} dot={false} name="Messages" />
+                <Line type="monotone" dataKey="applications" stroke="#C8102E" strokeWidth={2.5} dot={{ r: 4, fill: "#C8102E" }} name="Applications" />
+                <Line type="monotone" dataKey="quotes" stroke="#111827" strokeWidth={2} dot={false} name="Quote Requests" />
+                <Line type="monotone" dataKey="messages" stroke="#9CA3AF" strokeWidth={2} strokeDasharray="4 4" dot={false} name="Messages" />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        {/* Company Contact Info */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-base font-semibold text-gray-900">Company Contact Info</h2>
-            <button className="text-xs font-medium text-[#D71920] hover:underline">Edit</button>
+        {/* Company Quick Contact Info */}
+        <div className="bg-white rounded-3xl border border-gray-100 p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.03)] flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
+                Company Details
+              </h2>
+              <Link href="/dashboard/company" className="text-xs font-bold text-red-primary hover:underline">
+                Edit
+              </Link>
+            </div>
+            <div className="space-y-5">
+              {contactInfo.map((item) => (
+                <div key={item.label} className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 bg-red-primary/10 rounded-xl flex items-center justify-center shrink-0 text-red-primary mt-0.5">
+                    <item.icon size={18} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{item.label}</div>
+                    <div className="text-xs font-semibold text-gray-900 mt-0.5">{item.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="space-y-4">
-            {contactInfo.map((item) => (
-              <div key={item.label} className="flex items-start gap-3">
-                <div className="w-9 h-9 bg-gray-50 rounded-lg flex items-center justify-center shrink-0">
-                  <item.icon size={16} className="text-gray-400" />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-400">{item.label}</div>
-                  <div className="text-sm text-gray-900 font-medium">{item.value}</div>
-                </div>
-              </div>
-            ))}
+
+          <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+            <span>Official Ooredoo Distributor</span>
+            <span className="font-semibold text-gray-900">Algeria</span>
           </div>
         </div>
       </div>
 
       {/* Quick Actions + Recent Activity */}
-      <div className="grid lg:grid-cols-[1fr_360px] gap-6">
-        {/* Quick Actions */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <h2 className="text-base font-semibold text-gray-900 mb-6">Quick Actions</h2>
+      <div className="grid lg:grid-cols-[1fr_380px] gap-6">
+        {/* Quick Actions Grid */}
+        <div className="bg-white rounded-3xl border border-gray-100 p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.03)]">
+          <h2 className="text-lg font-bold text-gray-900 mb-6" style={{ fontFamily: "var(--font-display)" }}>
+            Quick Management Actions
+          </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {quickActions.map((action) => (
               <Link
                 key={action.label}
                 href={action.href}
-                className="group flex items-center gap-4 p-4 rounded-xl border border-gray-100 transition-all duration-200 hover:border-[#D71920]/30 hover:-translate-y-0.5"
+                className="group flex items-center gap-3.5 p-4 rounded-2xl border border-gray-100 bg-gray-50/50 transition-all duration-300 hover:bg-white hover:border-red-primary/30 hover:shadow-lg hover:shadow-red-primary/5 hover:-translate-y-0.5"
               >
-                <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center group-hover:bg-red-50 transition-colors">
-                  <action.icon size={18} className="text-gray-500 group-hover:text-[#D71920] transition-colors" />
+                <div className="w-10 h-10 bg-white rounded-xl border border-gray-100 flex items-center justify-center text-gray-600 group-hover:bg-red-primary group-hover:text-white group-hover:border-red-primary transition-all">
+                  <action.icon size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium text-gray-900">{action.label}</div>
-                  <div className="text-xs text-gray-400 truncate">{action.description}</div>
+                  <div className="text-xs font-bold text-gray-900 group-hover:text-red-primary transition-colors">{action.label}</div>
+                  <div className="text-[11px] text-gray-400 truncate">{action.description}</div>
                 </div>
-                <ArrowRight size={14} className="text-gray-300 group-hover:text-[#D71920] transition-colors" />
+                <ArrowRight size={14} className="text-gray-300 group-hover:text-red-primary transition-colors shrink-0" />
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Recent Activity */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
+        {/* Recent Activity Stream */}
+        <div className="bg-white rounded-3xl border border-gray-100 p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.03)]">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-base font-semibold text-gray-900">Recent Activity</h2>
-            <button className="text-xs font-medium text-[#D71920] hover:underline">View All</button>
+            <h2 className="text-lg font-bold text-gray-900" style={{ fontFamily: "var(--font-display)" }}>
+              Recent Activity
+            </h2>
+            <Link href="/dashboard/messages" className="text-xs font-bold text-red-primary hover:underline">
+              View All
+            </Link>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-5">
             {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className={`w-2 h-2 rounded-full ${activity.color} mt-2 shrink-0`} />
+              <div key={index} className="flex items-start gap-3.5 pb-4 border-b border-gray-100 last:border-b-0 last:pb-0">
+                <div className="w-2 h-2 rounded-full bg-red-primary mt-2 shrink-0" />
                 <div>
-                  <div className="text-sm text-gray-900 font-medium">{activity.title}</div>
-                  <div className="text-xs text-gray-500">{activity.subtitle}</div>
-                  <div className="text-[10px] text-gray-400 mt-0.5">{activity.time}</div>
+                  <div className="text-xs font-bold text-gray-900">{activity.title}</div>
+                  <div className="text-[11px] text-gray-500">{activity.subtitle}</div>
+                  <div className="text-[10px] text-gray-400 mt-1">{activity.time}</div>
                 </div>
               </div>
             ))}
